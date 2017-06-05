@@ -1,0 +1,25 @@
+{
+    "productManagementApp": {
+        "searchTracker" : {
+            "home": {
+                "title": "SearchTrackers",
+                "createLabel": "Créer un nouveau Search Tracker",
+                "createOrEditLabel": "Créer ou éditer un Search Tracker",
+                "search": "Recherche pour Search Tracker"
+            },
+            "created": "Un nouveau Search Tracker a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Search Tracker avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Search Tracker avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Search Tracker {{ id }} ?"
+            },
+            "detail": {
+                "title": "Search Tracker"
+            },
+            "datetime": "Datetime",
+            "content": "Content",
+            "shopType": "Shop Type",
+            "user": "User"
+        }
+    }
+}

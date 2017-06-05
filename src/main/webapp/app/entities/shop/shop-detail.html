@@ -1,0 +1,85 @@
+
+<div>
+    <h2><span data-translate="productManagementApp.shop.detail.title">Shop</span> {{vm.shop.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="productManagementApp.shop.name">Name</span></dt>
+        <dd>
+            <span>{{vm.shop.name}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{vm.shop.latitude}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{vm.shop.longitude}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.address">Address</span></dt>
+        <dd>
+            <span>{{vm.shop.address}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.tel">Tel</span></dt>
+        <dd>
+            <span>{{vm.shop.tel}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.logo">Logo</span></dt>
+        <dd>
+            <span>{{vm.shop.logo}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.shopActivityType">Shop Activity Type</span></dt>
+        <dd>
+            <span data-translate="{{'productManagementApp.ShopActivityType.' + vm.shop.shopActivityType}}">{{vm.shop.shopActivityType}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.average">Average</span></dt>
+        <dd>
+            <span>{{vm.shop.average}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.tags">Tags</span></dt>
+        <dd>
+            <span>{{vm.shop.tags}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.description">Description</span></dt>
+        <dd>
+            <span>{{vm.shop.description}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.hashId">Hash Id</span></dt>
+        <dd>
+            <span>{{vm.shop.hashId}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.shopStatus">Shop Status</span></dt>
+        <dd>
+            <span data-translate="{{'productManagementApp.ShopStatus.' + vm.shop.shopStatus}}">{{vm.shop.shopStatus}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.state">State</span></dt>
+        <dd>
+            <a ui-sref="state-detail({id:vm.shop.state.id})">{{vm.shop.state.id}}</a>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.parent">Parent</span></dt>
+        <dd>
+            <a ui-sref="shop-detail({id:vm.shop.parent.id})">{{vm.shop.parent.name}}</a>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.user">User</span></dt>
+        <dd>
+            <span ng-repeat="user in vm.shop.users">
+                {{user.login}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shop.shopType">Shop Type</span></dt>
+        <dd>
+            <a ui-sref="shop-type-detail({id:vm.shop.shopType.id})">{{vm.shop.shopType.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="shop-detail.edit({id:vm.shop.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

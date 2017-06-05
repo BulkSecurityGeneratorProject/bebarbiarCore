@@ -1,0 +1,38 @@
+{
+    "productManagementApp": {
+        "shop" : {
+            "home": {
+                "title": "Shops",
+                "createLabel": "Créer un nouveau Shop",
+                "createOrEditLabel": "Créer ou éditer un Shop",
+                "search": "Recherche pour Shop"
+            },
+            "created": "Un nouveau Shop a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shop avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shop avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shop {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shop"
+            },
+            "name": "Name",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "address": "Address",
+            "tel": "Tel",
+            "logo": "Logo",
+            "shopActivityType": "Shop Activity Type",
+            "average": "Average",
+            "tags": "Tags",
+            "description": "Description",
+            "hashId": "Hash Id",
+            "shopStatus": "Shop Status",
+            "state": "State",
+            "shopPropertyValue": "Shop Property Value",
+            "parent": "Parent",
+            "user": "User",
+            "shopType": "Shop Type"
+        }
+    }
+}

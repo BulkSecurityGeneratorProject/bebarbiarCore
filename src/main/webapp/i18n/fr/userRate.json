@@ -1,0 +1,26 @@
+{
+    "productManagementApp": {
+        "userRate" : {
+            "home": {
+                "title": "UserRates",
+                "createLabel": "Créer un nouveau User Rate",
+                "createOrEditLabel": "Créer ou éditer un User Rate",
+                "search": "Recherche pour User Rate"
+            },
+            "created": "Un nouveau User Rate a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User Rate avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User Rate avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User Rate {{ id }} ?"
+            },
+            "detail": {
+                "title": "User Rate"
+            },
+            "value": "Value",
+            "dateOfRate": "Date Of Rate",
+            "user": "User",
+            "product": "Product",
+            "shop": "Shop"
+        }
+    }
+}

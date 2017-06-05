@@ -1,0 +1,28 @@
+{
+    "productManagementApp": {
+        "productContent" : {
+            "home": {
+                "title": "ProductContents",
+                "createLabel": "Créer un nouveau Product Content",
+                "createOrEditLabel": "Créer ou éditer un Product Content",
+                "search": "Recherche pour Product Content"
+            },
+            "created": "Un nouveau Product Content a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product Content avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product Content avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product Content {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product Content"
+            },
+            "contentType": "Content Type",
+            "posterUrl": "Poster Url",
+            "poster": "Poster",
+            "content": "Content",
+            "description": "Description",
+            "contentUrl": "Content Url",
+            "product": "Product"
+        }
+    }
+}

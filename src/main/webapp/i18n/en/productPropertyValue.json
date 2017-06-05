@@ -1,0 +1,27 @@
+{
+    "productManagementApp": {
+        "productPropertyValue" : {
+            "home": {
+                "title": "Product Property Values",
+                "createLabel": "Create a new Product Property Value",
+                "createOrEditLabel": "Create or edit a Product Property Value",
+                "search": "Search for Product Property Value"
+            },
+            "created": "A new Product Property Value is created with identifier {{ param }}",
+            "updated": "A Product Property Value is updated with identifier {{ param }}",
+            "deleted": "A Product Property Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Property Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Property Value"
+            },
+            "value": "Value",
+            "accepted": "Accepted",
+            "fromDateTime": "From Date Time",
+            "toDateTime": "To Date Time",
+            "product": "Product",
+            "productProperty": "Product Property"
+        }
+    }
+}

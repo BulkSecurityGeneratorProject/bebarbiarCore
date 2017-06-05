@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="productManagementApp.shopContent.detail.title">Shop Content</span> {{vm.shopContent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.shopContent.contentUrl">Content Url</span></dt>
+        <dd>
+            <span>{{vm.shopContent.contentUrl}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopContent.posterUrl">Poster Url</span></dt>
+        <dd>
+            <span>{{vm.shopContent.posterUrl}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopContent.contentType">Content Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.ContentType.' + vm.shopContent.contentType}}">{{vm.shopContent.contentType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopContent.posterContentType">Poster Content Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.ContentType.' + vm.shopContent.posterContentType}}">{{vm.shopContent.posterContentType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopContent.shop">Shop</span></dt>
+        <dd>
+            <a ui-sref="shop-detail({id:vm.shopContent.shopId})">{{vm.shopContent.shopName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

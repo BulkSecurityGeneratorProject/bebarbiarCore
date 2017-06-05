@@ -1,0 +1,26 @@
+{
+    "productManagementApp": {
+        "shopProperty" : {
+            "home": {
+                "title": "Shop Properties",
+                "createLabel": "Create a new Shop Property",
+                "createOrEditLabel": "Create or edit a Shop Property",
+                "search": "Search for Shop Property"
+            },
+            "created": "A new Shop Property is created with identifier {{ param }}",
+            "updated": "A Shop Property is updated with identifier {{ param }}",
+            "deleted": "A Shop Property is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shop Property {{ id }}?"
+            },
+            "detail": {
+                "title": "Shop Property"
+            },
+            "propertyType": "Property Type",
+            "title": "Title",
+            "identifier": "Identifier",
+            "icon": "Icon",
+            "shopPropertyCategory": "Shop Property Category"
+        }
+    }
+}

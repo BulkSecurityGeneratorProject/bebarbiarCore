@@ -1,0 +1,98 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductLabel" translate="productManagementApp.product.home.createOrEditLabel">Create or edit a Product</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.product.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.product.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.discount" for="field_discount">Discount</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                    ng-model="vm.product.discount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.counts" for="field_counts">Counts</label>
+            <input type="number" class="form-control" name="counts" id="field_counts"
+                    ng-model="vm.product.counts"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.icon" for="field_icon">Icon</label>
+            <input type="text" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.product.icon"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.averageTrust" for="field_averageTrust">Average Trust</label>
+            <input type="number" class="form-control" name="averageTrust" id="field_averageTrust"
+                    ng-model="vm.product.averageTrust"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.product.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.hashId" for="field_hashId">Hash Id</label>
+            <input type="text" class="form-control" name="hashId" id="field_hashId"
+                    ng-model="vm.product.hashId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.tags" for="field_tags">Tags</label>
+            <input type="text" class="form-control" name="tags" id="field_tags"
+                    ng-model="vm.product.tags"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.product.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.product.price"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.product.shop" for="field_shop">Shop</label>
+            <select class="form-control" id="field_shop" name="shop" ng-model="vm.product.shop" ng-options="shop as shop.id for shop in vm.shops track by shop.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.product.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="vm.product.status" ng-options="productStatus as productStatus.id for productStatus in vm.productstatuses track by productStatus.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.product.productType" for="field_productType">Product Type</label>
+            <select class="form-control" id="field_productType" name="productType" ng-model="vm.product.productType" ng-options="productType as productType.id for productType in vm.producttypes track by productType.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

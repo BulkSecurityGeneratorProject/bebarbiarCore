@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductDiscountLabel" translate="productManagementApp.productDiscount.home.createOrEditLabel">Create or edit a Product Discount</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productDiscount.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productDiscount.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productDiscount.productTypePath" for="field_productTypePath">Product Type Path</label>
+            <input type="text" class="form-control" name="productTypePath" id="field_productTypePath"
+                    ng-model="vm.productDiscount.productTypePath"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productDiscount.discount" for="field_discount">Discount</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                    ng-model="vm.productDiscount.discount"
+                    required />
+            <div ng-show="editForm.discount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.discount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.discount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.productDiscount.product" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" ng-model="vm.productDiscount.productId" ng-options="product.id as product.title for product in vm.products"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

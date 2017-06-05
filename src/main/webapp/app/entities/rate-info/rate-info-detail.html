@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="productManagementApp.rateInfo.detail.title">Rate Info</span> {{vm.rateInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.rateInfo.title">Title</span></dt>
+        <dd>
+            <span>{{vm.rateInfo.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.rateInfo.rate">Rate</span></dt>
+        <dd>
+            <span>{{vm.rateInfo.rate}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.rateInfo.changed">Changed</span></dt>
+        <dd>
+            <span>{{vm.rateInfo.changed}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

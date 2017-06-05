@@ -1,0 +1,9 @@
+{
+    "productManagementApp": {
+        "TrustType" : {
+            "null": "",
+            "REPUTATION_SCALAR": "REPUTATION_SCALAR",
+            "REPUTATION_FLOAT": "REPUTATION_FLOAT"
+        }
+    }
+}

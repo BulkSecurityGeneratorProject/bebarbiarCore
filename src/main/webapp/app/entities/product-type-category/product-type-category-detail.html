@@ -1,0 +1,68 @@
+
+<div>
+    <h2><span data-translate="productManagementApp.productTypeCategory.detail.title">Product Type Category</span> {{vm.productTypeCategory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="productManagementApp.productTypeCategory.title">Title</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.title}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.description">Description</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.description}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.icon">Icon</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.icon}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.color">Color</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.color}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.path">Path</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.path}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.orderIndex">Order Index</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.orderIndex}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.iconImage">Icon Image</span></dt>
+        <dd>
+            <div ng-if="vm.productTypeCategory.iconImage">
+                <a ng-click="vm.openFile(vm.productTypeCategory.iconImageContentType, vm.productTypeCategory.iconImage)">
+                    <img data-ng-src="{{'data:' + vm.productTypeCategory.iconImageContentType + ';base64,' + vm.productTypeCategory.iconImage}}" style="max-width: 100%;" alt="productTypeCategory image"/>
+                </a>
+                {{vm.productTypeCategory.iconImageContentType}}, {{vm.byteSize(vm.productTypeCategory.iconImage)}}
+            </div>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.categoryType">Category Type</span></dt>
+        <dd>
+            <span data-translate="{{'productManagementApp.CategoryType.' + vm.productTypeCategory.categoryType}}">{{vm.productTypeCategory.categoryType}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.pin">Pin</span></dt>
+        <dd>
+            <span>{{vm.productTypeCategory.pin}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.status">Status</span></dt>
+        <dd>
+            <a ui-sref="product-type-status-detail({id:vm.productTypeCategory.status.id})">{{vm.productTypeCategory.status.id}}</a>
+        </dd>
+        <dt><span data-translate="productManagementApp.productTypeCategory.parent">Parent</span></dt>
+        <dd>
+            <a ui-sref="product-type-category-detail({id:vm.productTypeCategory.parent.id})">{{vm.productTypeCategory.parent.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="product-type-category-detail.edit({id:vm.productTypeCategory.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

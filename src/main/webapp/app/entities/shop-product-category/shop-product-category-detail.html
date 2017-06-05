@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="productManagementApp.shopProductCategory.detail.title">Shop Product Category</span> {{vm.shopProductCategory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.shopProductCategory.isDefault">Is Default</span></dt>
+        <dd>
+            <span>{{vm.shopProductCategory.isDefault}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopProductCategory.shop">Shop</span></dt>
+        <dd>
+            <a ui-sref="shop-detail({id:vm.shopProductCategory.shopId})">{{vm.shopProductCategory.shopName}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.shopProductCategory.productTypeCategory">Product Type Category</span></dt>
+        <dd>
+            <span ng-repeat="productTypeCategory in vm.shopProductCategory.productTypeCategories">
+                <a ui-sref="product-type-category-detail({id: {{productTypeCategory.id}}})">{{productTypeCategory.title}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

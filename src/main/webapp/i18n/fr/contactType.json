@@ -1,0 +1,13 @@
+{
+    "productManagementApp": {
+        "ContactType" : {
+            "null": "",
+            "INSTAGRAM": "INSTAGRAM",
+            "FACEBOOK": "FACEBOOK",
+            "GOOGLEPLUS": "GOOGLEPLUS",
+            "TELEGRAM": "TELEGRAM",
+            "MOBILE": "MOBILE",
+            "ADDRESS": "ADDRESS"
+        }
+    }
+}

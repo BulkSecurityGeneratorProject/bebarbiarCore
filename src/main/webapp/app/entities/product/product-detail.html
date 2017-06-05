@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="productManagementApp.product.detail.title">Product</span> {{vm.product.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.product.title">Title</span></dt>
+        <dd>
+            <span>{{vm.product.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.discount">Discount</span></dt>
+        <dd>
+            <span>{{vm.product.discount}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.counts">Counts</span></dt>
+        <dd>
+            <span>{{vm.product.counts}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.icon">Icon</span></dt>
+        <dd>
+            <span>{{vm.product.icon}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.averageTrust">Average Trust</span></dt>
+        <dd>
+            <span>{{vm.product.averageTrust}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.description">Description</span></dt>
+        <dd>
+            <span>{{vm.product.description}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.hashId">Hash Id</span></dt>
+        <dd>
+            <span>{{vm.product.hashId}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.tags">Tags</span></dt>
+        <dd>
+            <span>{{vm.product.tags}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.price">Price</span></dt>
+        <dd>
+            <span>{{vm.product.price}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.product.shop">Shop</span></dt>
+        <dd>
+            <a ui-sref="shop-detail({id:vm.product.shop.id})">{{vm.product.shop.id}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.product.status">Status</span></dt>
+        <dd>
+            <a ui-sref="product-status-detail({id:vm.product.status.id})">{{vm.product.status.id}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.product.productType">Product Type</span></dt>
+        <dd>
+            <a ui-sref="product-type-detail({id:vm.product.productType.id})">{{vm.product.productType.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

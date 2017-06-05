@@ -1,0 +1,85 @@
+<div class="container">
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <h2><span translate="productManagementApp.product.detail.title">Product</span> {{vm.product.id}}</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-7 slider">
+            <!-- slider container -->
+            <!-- enumerate all photos -->
+            <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()"
+                 ng-show="isActive($index)" ng-src="{{photo.src}}"/>
+
+            <!-- prev / next controls -->
+            <a class="slarrow prev" href="#" ng-click="showPrev()"></a>
+            <a class="slarrow next" href="#" ng-click="showNext()"></a>
+
+            <!-- extra navigation controls -->
+            <ul class="slnav">
+                <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+                    <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);"/>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="col-xs-5 p-detail ">
+            <!--prooduct detail-->
+
+
+            <hr>
+
+            <dl class="dl-horizontal jh-entity-details">
+
+                <dd>
+                    <span>{{vm.product.title}}</span>
+                </dd>
+                <dt><span translate="productManagementApp.product.discount">Discount</span></dt>
+                <dd>
+                    <span>{{vm.product.discount}}</span>
+                </dd>
+
+
+                <dt><span translate="productManagementApp.product.averageTrust">Average Trust</span></dt>
+                <dd>
+                    <span>{{vm.product.averageTrust}}</span>
+                </dd>
+                <dt><span translate="productManagementApp.product.description">Description</span></dt>
+                <dd>
+                    <span>{{vm.product.description}}</span>
+                </dd>
+
+                <dt><span translate="productManagementApp.product.shop">Shop</span></dt>
+                <dd>
+                    <a ui-sref="shop-detail({id:vm.product.shop.id})">{{vm.product.shop.id}}</a>
+                </dd>
+
+
+            </dl>
+
+        </div>
+        <div>
+            <!--product property-->
+        </div>
+
+    </div>
+    <div class="row">
+
+        <section class="tabbable" ng-init="tab = 1">
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a ng-click="vm.tab = 1" data-toggle="tab" >Description</a></li>
+                <li><a ng-click="vm.tab = 2" data-toggle="tab"  > Specifcations </a></li>
+                <li><a ng-click="vm.tab = 3" data-toggle="tab"  > Reviews</a> </li>
+            </ul>
+            <div class="tab-content">
+                <div id="descrp" class="tab-pane" ng-show="tab === 1">
+                    <h4>Description</h4>
+                    <p>{{ product.description }}</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>

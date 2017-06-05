@@ -1,0 +1,26 @@
+{
+    "productManagementApp": {
+        "shopProperty" : {
+            "home": {
+                "title": "ShopProperties",
+                "createLabel": "Créer un nouveau Shop Property",
+                "createOrEditLabel": "Créer ou éditer un Shop Property",
+                "search": "Recherche pour Shop Property"
+            },
+            "created": "Un nouveau Shop Property a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shop Property avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shop Property avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shop Property {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shop Property"
+            },
+            "propertyType": "Property Type",
+            "title": "Title",
+            "identifier": "Identifier",
+            "icon": "Icon",
+            "shopPropertyCategory": "Shop Property Category"
+        }
+    }
+}

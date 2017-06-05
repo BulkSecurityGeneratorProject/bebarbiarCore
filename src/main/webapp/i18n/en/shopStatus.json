@@ -1,0 +1,9 @@
+{
+    "productManagementApp": {
+        "ShopStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "DEACTIVE": "DEACTIVE"
+        }
+    }
+}

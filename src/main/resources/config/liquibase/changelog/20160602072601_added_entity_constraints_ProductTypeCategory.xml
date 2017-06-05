@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ProductTypeCategory.
+    -->
+    <changeSet id="20160602072601-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="product_type_category"
+                                 constraintName="fk_product_type_category_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_type_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="product_type_category"
+                                 constraintName="fk_product_type_category_parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_type_category"/>
+
+    </changeSet>
+</databaseChangeLog>

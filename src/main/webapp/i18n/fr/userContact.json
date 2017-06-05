@@ -1,0 +1,23 @@
+{
+    "productManagementApp": {
+        "userContact" : {
+            "home": {
+                "title": "UserContacts",
+                "createLabel": "Créer un nouveau User Contact",
+                "createOrEditLabel": "Créer ou éditer un User Contact",
+                "search": "Recherche pour User Contact"
+            },
+            "created": "Un nouveau User Contact a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User Contact avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User Contact avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User Contact {{ id }} ?"
+            },
+            "detail": {
+                "title": "User Contact"
+            },
+            "value": "Value",
+            "contactType": "Contact Type"
+        }
+    }
+}

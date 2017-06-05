@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="productManagementApp.userRate.detail.title">User Rate</span> {{vm.userRate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.userRate.value">Value</span></dt>
+        <dd>
+            <span>{{vm.userRate.value}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.userRate.dateOfRate">Date Of Rate</span></dt>
+        <dd>
+            <span>{{vm.userRate.dateOfRate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.userRate.user">User</span></dt>
+        <dd>
+            {{vm.userRate.user.id}}
+        </dd>
+        <dt><span translate="productManagementApp.userRate.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.userRate.product.id})">{{vm.userRate.product.id}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.userRate.shop">Shop</span></dt>
+        <dd>
+            <a ui-sref="shop-detail({id:vm.userRate.shop.id})">{{vm.userRate.shop.title}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

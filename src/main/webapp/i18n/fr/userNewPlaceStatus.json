@@ -1,0 +1,10 @@
+{
+    "productManagementApp": {
+        "UserNewPlaceStatus" : {
+            "null": "",
+            "CREATE": "CREATE",
+            "APPROVED": "APPROVED",
+            "REJECT": "REJECT"
+        }
+    }
+}

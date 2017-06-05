@@ -1,0 +1,10 @@
+{
+    "productManagementApp": {
+        "PropositionType" : {
+            "null": "",
+            "OFFER": "OFFER",
+            "COOPERATION": "COOPERATION",
+            "CRITICISM": "CRITICISM"
+        }
+    }
+}

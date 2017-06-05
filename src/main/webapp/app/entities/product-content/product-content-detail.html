@@ -1,0 +1,52 @@
+
+<div>
+    <h2><span translate="productManagementApp.productContent.detail.title">Product Content</span> {{vm.productContent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productContent.contentType">Content Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.ProductContentType.' + vm.productContent.contentType}}">{{vm.productContent.contentType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.posterUrl">Poster Url</span></dt>
+        <dd>
+            <span>{{vm.productContent.posterUrl}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.poster">Poster</span></dt>
+        <dd>
+            <div ng-if="vm.productContent.poster">
+                <a ng-click="vm.openFile(vm.productContent.posterContentType, vm.productContent.poster)">
+                    <img data-ng-src="{{'data:' + vm.productContent.posterContentType + ';base64,' + vm.productContent.poster}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.productContent.posterContentType}}, {{vm.byteSize(vm.productContent.poster)}}
+            </div>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.content">Content</span></dt>
+        <dd>
+            <div ng-if="vm.productContent.content">
+                <a ng-click="vm.openFile(vm.productContent.contentContentType, vm.productContent.content)">
+                    <img data-ng-src="{{'data:' + vm.productContent.contentContentType + ';base64,' + vm.productContent.content}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.productContent.contentContentType}}, {{vm.byteSize(vm.productContent.content)}}
+            </div>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.description">Description</span></dt>
+        <dd>
+            <span>{{vm.productContent.description}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.contentUrl">Content Url</span></dt>
+        <dd>
+            <span>{{vm.productContent.contentUrl}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productContent.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.productContent.product.id})">{{vm.productContent.product.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

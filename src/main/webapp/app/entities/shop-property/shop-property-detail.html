@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="productManagementApp.shopProperty.detail.title">Shop Property</span> {{vm.shopProperty.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="productManagementApp.shopProperty.propertyType">Property Type</span></dt>
+        <dd>
+            <span data-translate="{{'productManagementApp.PropertyType.' + vm.shopProperty.propertyType}}">{{vm.shopProperty.propertyType}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shopProperty.title">Title</span></dt>
+        <dd>
+            <span>{{vm.shopProperty.title}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shopProperty.identifier">Identifier</span></dt>
+        <dd>
+            <span>{{vm.shopProperty.identifier}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shopProperty.icon">Icon</span></dt>
+        <dd>
+            <span>{{vm.shopProperty.icon}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.shopProperty.shopPropertyCategory">Shop Property Category</span></dt>
+        <dd>
+            <a ui-sref="shop-property-category-detail({id:vm.shopProperty.shopPropertyCategoryId})">{{vm.shopProperty.shopPropertyCategoryId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="shop-property-detail.edit({id:vm.shopProperty.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

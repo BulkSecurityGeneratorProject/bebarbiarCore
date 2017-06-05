@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "productTrust" : {
+            "home": {
+                "title": "Product Trusts",
+                "createLabel": "Create a new Product Trust",
+                "createOrEditLabel": "Create or edit a Product Trust",
+                "search": "Search for Product Trust"
+            },
+            "created": "A new Product Trust is created with identifier {{ param }}",
+            "updated": "A Product Trust is updated with identifier {{ param }}",
+            "deleted": "A Product Trust is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Trust {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Trust"
+            },
+            "value": "Value",
+            "product": "Product",
+            "user": "User"
+        }
+    }
+}

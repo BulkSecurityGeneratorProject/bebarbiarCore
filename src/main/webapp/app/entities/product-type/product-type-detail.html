@@ -1,0 +1,61 @@
+
+<div>
+    <h2><span translate="productManagementApp.productType.detail.title">Product Type</span> {{vm.productType.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productType.title">Title</span></dt>
+        <dd>
+            <span>{{vm.productType.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.description">Description</span></dt>
+        <dd>
+            <span>{{vm.productType.description}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.trustType">Trust Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.TrustType.' + vm.productType.trustType}}">{{vm.productType.trustType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.color">Color</span></dt>
+        <dd>
+            <span>{{vm.productType.color}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.icon">Icon</span></dt>
+        <dd>
+            <span>{{vm.productType.icon}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.banner">Banner</span></dt>
+        <dd>
+            <div ng-if="vm.productType.banner">
+                <a ng-click="vm.openFile(vm.productType.bannerContentType, vm.productType.banner)">
+                    <img data-ng-src="{{'data:' + vm.productType.bannerContentType + ';base64,' + vm.productType.banner}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.productType.bannerContentType}}, {{vm.byteSize(vm.productType.banner)}}
+            </div>
+        </dd>
+        <dt><span translate="productManagementApp.productType.bannerUrl">Banner Url</span></dt>
+        <dd>
+            <span>{{vm.productType.bannerUrl}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.productTypeActivityType">Product Type Activity Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.ProductTypeActivityType.' + vm.productType.productTypeActivityType}}">{{vm.productType.productTypeActivityType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productType.status">Status</span></dt>
+        <dd>
+            <a ui-sref="product-type-status-detail({id:vm.productType.status.id})">{{vm.productType.status.id}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.productType.property">Property</span></dt>
+        <dd>
+            <span ng-repeat="property in vm.productType.properties">
+                <a ui-sref="product-property-detail({id: {{property.id}}})">{{property.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

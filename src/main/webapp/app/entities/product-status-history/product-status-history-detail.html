@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="productManagementApp.productStatusHistory.detail.title">Product Status History</span> {{vm.productStatusHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productStatusHistory.createDateTime">Create Date Time</span></dt>
+        <dd>
+            <span>{{vm.productStatusHistory.createDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productStatusHistory.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.productStatusHistory.product.id})">{{vm.productStatusHistory.product.title}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.productStatusHistory.status">Status</span></dt>
+        <dd>
+            <a ui-sref="product-status-detail({id:vm.productStatusHistory.status.id})">{{vm.productStatusHistory.status.title}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

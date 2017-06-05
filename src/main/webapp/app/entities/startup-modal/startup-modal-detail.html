@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="productManagementApp.startupModal.detail.title">Startup Modal</span> {{vm.startupModal.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.startupModal.url">Url</span></dt>
+        <dd>
+            <span>{{vm.startupModal.url}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.startupModal.index">Index</span></dt>
+        <dd>
+            <span>{{vm.startupModal.index}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

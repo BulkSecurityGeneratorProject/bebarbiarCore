@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myShopTypeLabel" translate="productManagementApp.shopType.home.createOrEditLabel">Create or edit a Shop Type</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.shopType.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.shopType.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopType.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.shopType.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopType.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.shopType.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopType.color" for="field_color">Color</label>
+            <input type="text" class="form-control" name="color" id="field_color"
+                    ng-model="vm.shopType.color"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopType.icon" for="field_icon">Icon</label>
+            <input type="text" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.shopType.icon"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopType.banner" for="field_banner">Banner</label>
+            <input type="text" class="form-control" name="banner" id="field_banner"
+                    ng-model="vm.shopType.banner"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.shopType.shopProperty" for="field_shopProperty">Shop Property</label>
+            <select class="form-control" id="field_shopProperty" multiple name="shopProperty" ng-model="vm.shopType.shopProperties" ng-options="shopProperty as shopProperty.title for shopProperty in vm.shopproperties track by shopProperty.id"></select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.shopType.shopTypeCategory" for="field_shopTypeCategory">Shop Type Category</label>
+            <select class="form-control" id="field_shopTypeCategory" name="shopTypeCategory" ng-model="vm.shopType.shopTypeCategoryId" ng-options="shopTypeCategory.id as shopTypeCategory.title for shopTypeCategory in vm.shoptypecategories"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

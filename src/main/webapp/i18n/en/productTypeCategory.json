@@ -1,0 +1,32 @@
+{
+    "productManagementApp": {
+        "productTypeCategory" : {
+            "home": {
+                "title": "Product Type Categories",
+                "createLabel": "Create a new Product Type Category",
+                "createOrEditLabel": "Create or edit a Product Type Category",
+                "search": "Search for Product Type Category"
+            },
+            "created": "A new Product Type Category is created with identifier {{ param }}",
+            "updated": "A Product Type Category is updated with identifier {{ param }}",
+            "deleted": "A Product Type Category is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Type Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Type Category"
+            },
+            "title": "Title",
+            "description": "Description",
+            "icon": "Icon",
+            "color": "Color",
+            "path": "Path",
+            "orderIndex": "Order Index",
+            "iconImage": "Icon Image",
+            "categoryType": "Category Type",
+            "pin": "Pin",
+            "status": "Status",
+            "parent": "Parent"
+        }
+    }
+}

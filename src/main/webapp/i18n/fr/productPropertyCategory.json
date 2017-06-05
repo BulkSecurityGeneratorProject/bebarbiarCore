@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "productPropertyCategory" : {
+            "home": {
+                "title": "ProductPropertyCategories",
+                "createLabel": "Créer un nouveau Product Property Category",
+                "createOrEditLabel": "Créer ou éditer un Product Property Category",
+                "search": "Recherche pour Product Property Category"
+            },
+            "created": "Un nouveau Product Property Category a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product Property Category avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product Property Category avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product Property Category {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product Property Category"
+            },
+            "title": "Title",
+            "iconUrl": "Icon Url",
+            "icon": "Icon"
+        }
+    }
+}

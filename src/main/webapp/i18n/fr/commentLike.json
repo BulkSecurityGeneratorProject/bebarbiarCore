@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "commentLike" : {
+            "home": {
+                "title": "CommentLikes",
+                "createLabel": "Créer un nouveau Comment Like",
+                "createOrEditLabel": "Créer ou éditer un Comment Like",
+                "search": "Recherche pour Comment Like"
+            },
+            "created": "Un nouveau Comment Like a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Comment Like avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Comment Like avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Comment Like {{ id }} ?"
+            },
+            "detail": {
+                "title": "Comment Like"
+            },
+            "dateOfLike": "Date Of Like",
+            "user": "User",
+            "comment": "Comment"
+        }
+    }
+}

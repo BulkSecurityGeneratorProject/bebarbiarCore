@@ -1,0 +1,113 @@
+<div>
+    <h2 data-translate="productManagementApp.shop.home.title">Shops</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="shop.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="productManagementApp.shop.home.createLabel">
+                        Create new Shop
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'productManagementApp.shop.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="productManagementApp.shop.name">Name</span></th>
+                    <th><span data-translate="productManagementApp.shop.latitude">Latitude</span></th>
+                    <th><span data-translate="productManagementApp.shop.longitude">Longitude</span></th>
+                    <th><span data-translate="productManagementApp.shop.address">Address</span></th>
+                    <th><span data-translate="productManagementApp.shop.tel">Tel</span></th>
+                    <th><span data-translate="productManagementApp.shop.logo">Logo</span></th>
+                    <th><span data-translate="productManagementApp.shop.shopActivityType">Shop Activity Type</span></th>
+                    <th><span data-translate="productManagementApp.shop.average">Average</span></th>
+                    <th><span data-translate="productManagementApp.shop.tags">Tags</span></th>
+                    <th><span data-translate="productManagementApp.shop.description">Description</span></th>
+                    <th><span data-translate="productManagementApp.shop.hashId">Hash Id</span></th>
+                    <th><span data-translate="productManagementApp.shop.shopStatus">Shop Status</span></th>
+                    <th><span data-translate="productManagementApp.shop.state">State</span></th>
+                    <th><span data-translate="productManagementApp.shop.parent">Parent</span></th>
+                    <th><span data-translate="productManagementApp.shop.user">User</span></th>
+                    <th><span data-translate="productManagementApp.shop.shopType">Shop Type</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shop in vm.shops track by shop.id">
+                    <td><a ui-sref="shop-detail({id:shop.id})">{{shop.id}}</a></td>
+                    <td>{{shop.name}}</td>
+                    <td>{{shop.latitude}}</td>
+                    <td>{{shop.longitude}}</td>
+                    <td>{{shop.address}}</td>
+                    <td>{{shop.tel}}</td>
+                    <td>{{shop.logo}}</td>
+                    <td data-translate="{{'productManagementApp.ShopActivityType.' + shop.shopActivityType}}">{{shop.shopActivityType}}</td>
+                    <td>{{shop.average}}</td>
+                    <td>{{shop.tags}}</td>
+                    <td>{{shop.description}}</td>
+                    <td>{{shop.hashId}}</td>
+                    <td data-translate="{{'productManagementApp.ShopStatus.' + shop.shopStatus}}">{{shop.shopStatus}}</td>
+                    <td>
+                        <a ui-sref="state-detail({id:shop.state.id})">{{shop.state.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="shop-detail({id:shop.parent.id})">{{shop.parent.name}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="user in shop.users">
+                            {{user.login}}{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <a ui-sref="shop-type-detail({id:shop.shopType.id})">{{shop.shopType.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="shop-detail({id:shop.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="shop.edit({id:shop.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="shop.delete({id:shop.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

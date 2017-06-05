@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myShopPropertyLabel" data-translate="productManagementApp.shopProperty.home.createOrEditLabel">Create or edit a Shop Property</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.shopProperty.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.shopProperty.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.shopProperty.propertyType" for="field_propertyType">Property Type</label>
+            <select class="form-control" name="propertyType" ng-model="vm.shopProperty.propertyType" id="field_propertyType">
+                <option value="CHECKBOX" data-translate="productManagementApp.PropertyType.CHECKBOX">CHECKBOX</option>
+                <option value="COLOR" data-translate="productManagementApp.PropertyType.COLOR">COLOR</option>
+                <option value="RANGE" data-translate="productManagementApp.PropertyType.RANGE">RANGE</option>
+                <option value="COMBO_DYNAMIC" data-translate="productManagementApp.PropertyType.COMBO_DYNAMIC">COMBO_DYNAMIC</option>
+                <option value="OSTAN" data-translate="productManagementApp.PropertyType.OSTAN">OSTAN</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.shopProperty.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.shopProperty.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.shopProperty.identifier" for="field_identifier">Identifier</label>
+            <input type="text" class="form-control" name="identifier" id="field_identifier"
+                    ng-model="vm.shopProperty.identifier"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.shopProperty.icon" for="field_icon">Icon</label>
+            <input type="text" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.shopProperty.icon"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="productManagementApp.shopProperty.shopPropertyCategory" for="field_shopPropertyCategory">Shop Property Category</label>
+            <select class="form-control" id="field_shopPropertyCategory" name="shopPropertyCategory" ng-model="vm.shopProperty.shopPropertyCategoryId" ng-options="shopPropertyCategory.id as shopPropertyCategory.id for shopPropertyCategory in vm.shoppropertycategories"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

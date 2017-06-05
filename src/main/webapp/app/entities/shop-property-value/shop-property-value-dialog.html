@@ -1,0 +1,70 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myShopPropertyValueLabel" translate="productManagementApp.shopPropertyValue.home.createOrEditLabel">Create or edit a Shop Property Value</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.shopPropertyValue.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.shopPropertyValue.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopPropertyValue.value" for="field_value">Value</label>
+            <input type="text" class="form-control" name="value" id="field_value"
+                    ng-model="vm.shopPropertyValue.value"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopPropertyValue.accepted" for="field_accepted">Accepted</label>
+            <input type="checkbox" class="form-control" name="accepted" id="field_accepted"
+                    ng-model="vm.shopPropertyValue.accepted"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopPropertyValue.fromDateTime" for="field_fromDateTime">From Date Time</label>
+                <div class="input-group">
+                    <input id="field_fromDateTime" type="text" class="form-control" name="fromDateTime" datetime-picker="{{dateformat}}" ng-model="vm.shopPropertyValue.fromDateTime" is-open="vm.datePickerOpenStatus.fromDateTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fromDateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopPropertyValue.toDateTime" for="field_toDateTime">To Date Time</label>
+                <div class="input-group">
+                    <input id="field_toDateTime" type="text" class="form-control" name="toDateTime" datetime-picker="{{dateformat}}" ng-model="vm.shopPropertyValue.toDateTime" is-open="vm.datePickerOpenStatus.toDateTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('toDateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.shopPropertyValue.shop" for="field_shop">Shop</label>
+            <select class="form-control" id="field_shop" name="shop" ng-model="vm.shopPropertyValue.shopId" ng-options="shop.id as shop.title for shop in vm.shops"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.shopPropertyValue.shopProperty" for="field_shopProperty">Shop Property</label>
+            <select class="form-control" id="field_shopProperty" name="shopProperty" ng-model="vm.shopPropertyValue.shopPropertyId" ng-options="shopProperty.id as shopProperty.title for shopProperty in vm.shopproperties"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

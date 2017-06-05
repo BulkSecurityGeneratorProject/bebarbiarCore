@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myShopContentLabel" translate="productManagementApp.shopContent.home.createOrEditLabel">Create or edit a Shop Content</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.shopContent.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.shopContent.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopContent.contentUrl" for="field_contentUrl">Content Url</label>
+            <input type="text" class="form-control" name="contentUrl" id="field_contentUrl"
+                    ng-model="vm.shopContent.contentUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopContent.posterUrl" for="field_posterUrl">Poster Url</label>
+            <input type="text" class="form-control" name="posterUrl" id="field_posterUrl"
+                    ng-model="vm.shopContent.posterUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopContent.contentType" for="field_contentType">Content Type</label>
+            <select class="form-control" name="contentType" ng-model="vm.shopContent.contentType" id="field_contentType">
+                <option value="IMAGE" translate="productManagementApp.ContentType.IMAGE">IMAGE</option>
+                <option value="AUDIO" translate="productManagementApp.ContentType.AUDIO">AUDIO</option>
+                <option value="VIDEO" translate="productManagementApp.ContentType.VIDEO">VIDEO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.shopContent.posterContentType" for="field_posterContentType">Poster Content Type</label>
+            <select class="form-control" name="posterContentType" ng-model="vm.shopContent.posterContentType" id="field_posterContentType">
+                <option value="IMAGE" translate="productManagementApp.ContentType.IMAGE">IMAGE</option>
+                <option value="AUDIO" translate="productManagementApp.ContentType.AUDIO">AUDIO</option>
+                <option value="VIDEO" translate="productManagementApp.ContentType.VIDEO">VIDEO</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.shopContent.shop" for="field_shop">Shop</label>
+            <select class="form-control" id="field_shop" name="shop" ng-model="vm.shopContent.shopId" ng-options="shop.id as shop.name for shop in vm.shops"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,11 @@
+{
+    "productManagementApp": {
+        "CommntStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "CREATED": "CREATED",
+            "REJECTED": "REJECTED",
+            "DELETE": "DELETE"
+        }
+    }
+}

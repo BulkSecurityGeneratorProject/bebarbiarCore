@@ -1,0 +1,102 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductContentLabel" translate="productManagementApp.productContent.home.createOrEditLabel">Create or edit a Product Content</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productContent.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productContent.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productContent.contentType" for="field_contentType">Content Type</label>
+            <select class="form-control" name="contentType" ng-model="vm.productContent.contentType" id="field_contentType">
+                <option value="IMAGE" translate="productManagementApp.ProductContentType.IMAGE">IMAGE</option>
+                <option value="VIDEO" translate="productManagementApp.ProductContentType.VIDEO">VIDEO</option>
+                <option value="AUDIO" translate="productManagementApp.ProductContentType.AUDIO">AUDIO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productContent.posterUrl" for="field_posterUrl">Poster Url</label>
+            <input type="text" class="form-control" name="posterUrl" id="field_posterUrl"
+                    ng-model="vm.productContent.posterUrl"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPoster($file, vm.productContent)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="productManagementApp.productContent.poster" for="field_poster">Poster</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.productContent.posterContentType + ';base64,' + vm.productContent.poster}}" style="max-height: 100px;" ng-if="vm.productContent.poster"/>
+                <div ng-if="vm.productContent.poster" class="help-block clearfix">
+                    <span class="pull-left">{{vm.productContent.posterContentType}}, {{vm.byteSize(vm.productContent.poster)}}</span>
+                    <button ng-click="vm.productContent.poster=null;vm.productContent.posterContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setPoster($file, vm.productContent)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="poster" id="field_poster"
+                    ng-model="vm.productContent.poster"
+                     />
+            <input type="hidden" class="form-control" name="posterContentType" id="field_posterContentType"
+                    ng-model="vm.productContent.posterContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setContent($file, vm.productContent)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="productManagementApp.productContent.content" for="field_content">Content</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.productContent.contentContentType + ';base64,' + vm.productContent.content}}" style="max-height: 100px;" ng-if="vm.productContent.content"/>
+                <div ng-if="vm.productContent.content" class="help-block clearfix">
+                    <span class="pull-left">{{vm.productContent.contentContentType}}, {{vm.byteSize(vm.productContent.content)}}</span>
+                    <button ng-click="vm.productContent.content=null;vm.productContent.contentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setContent($file, vm.productContent)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="content" id="field_content"
+                    ng-model="vm.productContent.content"
+                     />
+            <input type="hidden" class="form-control" name="contentContentType" id="field_contentContentType"
+                    ng-model="vm.productContent.contentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productContent.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.productContent.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productContent.contentUrl" for="field_contentUrl">Content Url</label>
+            <input type="text" class="form-control" name="contentUrl" id="field_contentUrl"
+                    ng-model="vm.productContent.contentUrl"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.productContent.product" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" ng-model="vm.productContent.product" ng-options="product as product.id for product in vm.products track by product.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

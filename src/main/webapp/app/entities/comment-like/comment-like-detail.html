@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="productManagementApp.commentLike.detail.title">Comment Like</span> {{vm.commentLike.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.commentLike.dateOfLike">Date Of Like</span></dt>
+        <dd>
+            <span>{{vm.commentLike.dateOfLike | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.commentLike.user">User</span></dt>
+        <dd>
+            {{vm.commentLike.user.id}}
+        </dd>
+        <dt><span translate="productManagementApp.commentLike.comment">Comment</span></dt>
+        <dd>
+            <a ui-sref="comment-detail({id:vm.commentLike.comment.id})">{{vm.commentLike.comment.message}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

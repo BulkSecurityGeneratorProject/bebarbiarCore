@@ -1,0 +1,25 @@
+{
+    "productManagementApp": {
+        "user" : {
+            "home": {
+                "title": "Users",
+                "createLabel": "Créer un nouveau User",
+                "createOrEditLabel": "Créer ou éditer un User",
+                "search": "Recherche pour User"
+            },
+            "created": "Un nouveau User a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User {{ id }} ?"
+            },
+            "detail": {
+                "title": "User"
+            },
+            "hashId": "Hash Id",
+            "invaitedUser1": "Invaited User 1",
+            "invaitedUser2": "Invaited User 2",
+            "invaitedUser3": "Invaited User 3"
+        }
+    }
+}

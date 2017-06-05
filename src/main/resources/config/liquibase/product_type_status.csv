@@ -1,0 +1,5 @@
+id;title;code;order_index
+1;ایجاد;CREATE;1
+2;فعال;ACTIVE;2
+3;غیرفعال;DISABLE;3
+4;حذف;DELETED;4

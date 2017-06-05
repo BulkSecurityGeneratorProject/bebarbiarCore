@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="productManagementApp.productPropertyValue.detail.title">Product Property Value</span> {{vm.productPropertyValue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productPropertyValue.value">Value</span></dt>
+        <dd>
+            <span>{{vm.productPropertyValue.value}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productPropertyValue.accepted">Accepted</span></dt>
+        <dd>
+            <span>{{vm.productPropertyValue.accepted}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productPropertyValue.fromDateTime">From Date Time</span></dt>
+        <dd>
+            <span>{{vm.productPropertyValue.fromDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productPropertyValue.toDateTime">To Date Time</span></dt>
+        <dd>
+            <span>{{vm.productPropertyValue.toDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productPropertyValue.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.productPropertyValue.product.id})">{{vm.productPropertyValue.product.id}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.productPropertyValue.productProperty">Product Property</span></dt>
+        <dd>
+            <a ui-sref="product-property-detail({id:vm.productPropertyValue.productProperty.id})">{{vm.productPropertyValue.productProperty.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

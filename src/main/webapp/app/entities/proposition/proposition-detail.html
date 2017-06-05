@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="productManagementApp.proposition.detail.title">Proposition</span> {{vm.proposition.title}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.proposition.title">Title</span></dt>
+        <dd>
+            <span>{{vm.proposition.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.proposition.description">Description</span></dt>
+        <dd>
+            <span>{{vm.proposition.description}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.proposition.propositionType">Proposition Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.PropositionType.' + vm.proposition.propositionType}}">{{vm.proposition.propositionType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.proposition.user">User</span></dt>
+        <dd>
+            {{vm.proposition.user.name+ '  '+ vm.proposition.user.lastName) }}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

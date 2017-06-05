@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="productManagementApp.baseParameter.detail.title">Base Parameter</span> {{vm.baseParameter.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.baseParameter.value">Value</span></dt>
+        <dd>
+            <span>{{vm.baseParameter.value}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.baseParameter.parameterType">Parameter Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.ParameterType.' + vm.baseParameter.parameterType}}">{{vm.baseParameter.parameterType}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="productManagementApp.searchTracker.detail.title">Search Tracker</span> {{vm.searchTracker.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="productManagementApp.searchTracker.datetime">Datetime</span></dt>
+        <dd>
+            <span>{{vm.searchTracker.datetime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.searchTracker.content">Content</span></dt>
+        <dd>
+            <span>{{vm.searchTracker.content}}</span>
+        </dd>
+        <dt><span data-translate="productManagementApp.searchTracker.shopType">Shop Type</span></dt>
+        <dd>
+            <a ui-sref="shop-type-detail({id:vm.searchTracker.shopTypeId})">{{vm.searchTracker.shopTypeY}}</a>
+        </dd>
+        <dt><span data-translate="productManagementApp.searchTracker.user">User</span></dt>
+        <dd>
+            {{vm.searchTracker.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="search-tracker-detail.edit({id:vm.searchTracker.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

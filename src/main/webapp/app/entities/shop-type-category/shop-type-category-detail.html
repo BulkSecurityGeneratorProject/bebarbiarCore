@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="productManagementApp.shopTypeCategory.detail.title">Shop Type Category</span> {{vm.shopTypeCategory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.shopTypeCategory.title">Title</span></dt>
+        <dd>
+            <span>{{vm.shopTypeCategory.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopTypeCategory.description">Description</span></dt>
+        <dd>
+            <span>{{vm.shopTypeCategory.description}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.shopTypeCategory.iconUrl">Icon Url</span></dt>
+        <dd>
+            <span>{{vm.shopTypeCategory.iconUrl}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

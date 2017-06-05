@@ -1,0 +1,43 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductStatusHistoryLabel" translate="productManagementApp.productStatusHistory.home.createOrEditLabel">Create or edit a Product Status History</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productStatusHistory.createDateTime" for="field_createDateTime">Create Date Time</label>
+                <div class="input-group">
+                    <input id="field_createDateTime" type="text" class="form-control" name="createDateTime" datetime-picker="{{dateformat}}" ng-model="vm.productStatusHistory.createDateTime" is-open="vm.datePickerOpenStatus.createDateTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.productStatusHistory.product" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" ng-model="vm.productStatusHistory.product" ng-options="product as product.title for product in vm.products track by product.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.productStatusHistory.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="vm.productStatusHistory.status" ng-options="productStatus as productStatus.title for productStatus in vm.productstatuses track by productStatus.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "shopTypeCategory" : {
+            "home": {
+                "title": "Shop Type Categories",
+                "createLabel": "Create a new Shop Type Category",
+                "createOrEditLabel": "Create or edit a Shop Type Category",
+                "search": "Search for Shop Type Category"
+            },
+            "created": "A new Shop Type Category is created with identifier {{ param }}",
+            "updated": "A Shop Type Category is updated with identifier {{ param }}",
+            "deleted": "A Shop Type Category is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shop Type Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Shop Type Category"
+            },
+            "title": "Title",
+            "description": "Description",
+            "iconUrl": "Icon Url"
+        }
+    }
+}

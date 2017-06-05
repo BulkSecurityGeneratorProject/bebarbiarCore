@@ -1,0 +1,101 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductTypeLabel" translate="productManagementApp.productType.home.createOrEditLabel">Create or edit a Product Type</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productType.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productType.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.productType.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.productType.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.trustType" for="field_trustType">Trust Type</label>
+            <select class="form-control" name="trustType" ng-model="vm.productType.trustType" id="field_trustType">
+                <option value="REPUTATION_SCALAR" translate="productManagementApp.TrustType.REPUTATION_SCALAR">REPUTATION_SCALAR</option>
+                <option value="REPUTATION_FLOAT" translate="productManagementApp.TrustType.REPUTATION_FLOAT">REPUTATION_FLOAT</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.color" for="field_color">Color</label>
+            <input type="text" class="form-control" name="color" id="field_color"
+                    ng-model="vm.productType.color"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.icon" for="field_icon">Icon</label>
+            <input type="text" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.productType.icon"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBanner($file, vm.productType)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="productManagementApp.productType.banner" for="field_banner">Banner</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.productType.bannerContentType + ';base64,' + vm.productType.banner}}" style="max-height: 100px;" ng-if="vm.productType.banner"/>
+                <div ng-if="vm.productType.banner" class="help-block clearfix">
+                    <span class="pull-left">{{vm.productType.bannerContentType}}, {{vm.byteSize(vm.productType.banner)}}</span>
+                    <button ng-click="vm.productType.banner=null;vm.productType.bannerContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBanner($file, vm.productType)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="banner" id="field_banner"
+                    ng-model="vm.productType.banner"
+                     />
+            <input type="hidden" class="form-control" name="bannerContentType" id="field_bannerContentType"
+                    ng-model="vm.productType.bannerContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.bannerUrl" for="field_bannerUrl">Banner Url</label>
+            <input type="text" class="form-control" name="bannerUrl" id="field_bannerUrl"
+                    ng-model="vm.productType.bannerUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productType.productTypeActivityType" for="field_productTypeActivityType">Product Type Activity Type</label>
+            <select class="form-control" name="productTypeActivityType" ng-model="vm.productType.productTypeActivityType" id="field_productTypeActivityType">
+                <option value="ShOWPALCE" translate="productManagementApp.ProductTypeActivityType.ShOWPALCE">ShOWPALCE</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.productType.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="vm.productType.status" ng-options="productTypeStatus as productTypeStatus.id for productTypeStatus in vm.producttypestatuses track by productTypeStatus.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.productType.property" for="field_property">Property</label>
+            <select class="form-control" id="field_property" multiple name="property" ng-model="vm.productType.properties" ng-options="productProperty as productProperty.id for productProperty in vm.productproperties track by productProperty.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

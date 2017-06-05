@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "userImage" : {
+            "home": {
+                "title": "User Images",
+                "createLabel": "Create a new User Image",
+                "createOrEditLabel": "Create or edit a User Image",
+                "search": "Search for User Image"
+            },
+            "created": "A new User Image is created with identifier {{ param }}",
+            "updated": "A User Image is updated with identifier {{ param }}",
+            "deleted": "A User Image is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Image {{ id }}?"
+            },
+            "detail": {
+                "title": "User Image"
+            },
+            "image": "Image",
+            "deleted": "Deleted",
+            "user": "User"
+        }
+    }
+}

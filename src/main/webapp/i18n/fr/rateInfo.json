@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "rateInfo" : {
+            "home": {
+                "title": "RateInfos",
+                "createLabel": "Créer un nouveau Rate Info",
+                "createOrEditLabel": "Créer ou éditer un Rate Info",
+                "search": "Recherche pour Rate Info"
+            },
+            "created": "Un nouveau Rate Info a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rate Info avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rate Info avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Rate Info {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rate Info"
+            },
+            "title": "Title",
+            "rate": "Rate",
+            "changed": "Changed"
+        }
+    }
+}

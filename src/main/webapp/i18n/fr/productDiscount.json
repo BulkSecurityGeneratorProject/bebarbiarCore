@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "productDiscount" : {
+            "home": {
+                "title": "ProductDiscounts",
+                "createLabel": "Créer un nouveau Product Discount",
+                "createOrEditLabel": "Créer ou éditer un Product Discount",
+                "search": "Recherche pour Product Discount"
+            },
+            "created": "Un nouveau Product Discount a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product Discount avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product Discount avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product Discount {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product Discount"
+            },
+            "productTypePath": "Product Type Path",
+            "discount": "Discount",
+            "product": "Product"
+        }
+    }
+}

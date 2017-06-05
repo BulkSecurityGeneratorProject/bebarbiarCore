@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "productStatusHistory" : {
+            "home": {
+                "title": "Product Status Histories",
+                "createLabel": "Create a new Product Status History",
+                "createOrEditLabel": "Create or edit a Product Status History",
+                "search": "Search for Product Status History"
+            },
+            "created": "A new Product Status History is created with identifier {{ param }}",
+            "updated": "A Product Status History is updated with identifier {{ param }}",
+            "deleted": "A Product Status History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Status History {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Status History"
+            },
+            "createDateTime": "Create Date Time",
+            "product": "Product",
+            "status": "Status"
+        }
+    }
+}

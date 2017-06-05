@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "userImage" : {
+            "home": {
+                "title": "UserImages",
+                "createLabel": "Créer un nouveau User Image",
+                "createOrEditLabel": "Créer ou éditer un User Image",
+                "search": "Recherche pour User Image"
+            },
+            "created": "Un nouveau User Image a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User Image avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User Image avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User Image {{ id }} ?"
+            },
+            "detail": {
+                "title": "User Image"
+            },
+            "image": "Image",
+            "deleted": "Deleted",
+            "user": "User"
+        }
+    }
+}

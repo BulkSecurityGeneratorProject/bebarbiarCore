@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myUserLabel" translate="productManagementApp.user.home.createOrEditLabel">Create or edit a User</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.user.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.user.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.user.hashId" for="field_hashId">Hash Id</label>
+            <input type="text" class="form-control" name="hashId" id="field_hashId"
+                    ng-model="vm.user.hashId"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.user.invaitedUser1" for="field_invaitedUser1">Invaited User 1</label>
+            <select class="form-control" id="field_invaitedUser1" name="invaitedUser1" ng-model="vm.user.invaitedUser1Id" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.user.invaitedUser2" for="field_invaitedUser2">Invaited User 2</label>
+            <select class="form-control" id="field_invaitedUser2" name="invaitedUser2" ng-model="vm.user.invaitedUser2Id" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.user.invaitedUser3" for="field_invaitedUser3">Invaited User 3</label>
+            <select class="form-control" id="field_invaitedUser3" name="invaitedUser3" ng-model="vm.user.invaitedUser3Id" ng-options="user.id as user.id for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+{
+    "productManagementApp": {
+        "baseParameter" : {
+            "home": {
+                "title": "BaseParameters",
+                "createLabel": "Créer un nouveau Base Parameter",
+                "createOrEditLabel": "Créer ou éditer un Base Parameter",
+                "search": "Recherche pour Base Parameter"
+            },
+            "created": "Un nouveau Base Parameter a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Base Parameter avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Base Parameter avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Base Parameter {{ id }} ?"
+            },
+            "detail": {
+                "title": "Base Parameter"
+            },
+            "value": "Value",
+            "parameterType": "Parameter Type"
+        }
+    }
+}

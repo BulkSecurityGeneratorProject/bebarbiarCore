@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="productManagementApp.user.detail.title">User</span> {{vm.user.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.user.hashId">Hash Id</span></dt>
+        <dd>
+            <span>{{vm.user.hashId}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.user.invaitedUser1">Invaited User 1</span></dt>
+        <dd>
+            {{vm.user.invaitedUser1Id}}
+        </dd>
+        <dt><span translate="productManagementApp.user.invaitedUser2">Invaited User 2</span></dt>
+        <dd>
+            {{vm.user.invaitedUser2Id}}
+        </dd>
+        <dt><span translate="productManagementApp.user.invaitedUser3">Invaited User 3</span></dt>
+        <dd>
+            {{vm.user.invaitedUser3Id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

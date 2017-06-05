@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "productTypeStatus" : {
+            "home": {
+                "title": "ProductTypeStatuses",
+                "createLabel": "Créer un nouveau Product Type Status",
+                "createOrEditLabel": "Créer ou éditer un Product Type Status",
+                "search": "Recherche pour Product Type Status"
+            },
+            "created": "Un nouveau Product Type Status a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product Type Status avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product Type Status avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product Type Status {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product Type Status"
+            },
+            "title": "Title",
+            "orderIndex": "Order Index",
+            "code": "Code"
+        }
+    }
+}

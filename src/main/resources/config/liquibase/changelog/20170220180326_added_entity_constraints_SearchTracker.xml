@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity SearchTracker.
+    -->
+    <changeSet id="20170220180326-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="shop_type_id"
+                                 baseTableName="search_tracker"
+                                 constraintName="fk_search_tracker_shop_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shop_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="search_tracker"
+                                 constraintName="fk_search_tracker_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

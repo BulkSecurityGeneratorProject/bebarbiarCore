@@ -1,0 +1,75 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCommentLabel" translate="productManagementApp.comment.home.createOrEditLabel">Create or edit a Comment</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.comment.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.comment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.comment.message" for="field_message">Message</label>
+            <input type="text" class="form-control" name="message" id="field_message"
+                    ng-model="vm.comment.message"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.comment.submitDate" for="field_submitDate">Submit Date</label>
+                <div class="input-group">
+                    <input id="field_submitDate" type="text" class="form-control" name="submitDate" datetime-picker="{{dateformat}}" ng-model="vm.comment.submitDate" is-open="vm.datePickerOpenStatus.submitDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('submitDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.comment.likes" for="field_likes">Likes</label>
+            <input type="number" class="form-control" name="likes" id="field_likes"
+                    ng-model="vm.comment.likes"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.comment.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.comment.status" id="field_status">
+                <option value="ACTIVE" translate="productManagementApp.CommntStatus.ACTIVE">ACTIVE</option>
+                <option value="CREATED" translate="productManagementApp.CommntStatus.CREATED">CREATED</option>
+                <option value="REJECTED" translate="productManagementApp.CommntStatus.REJECTED">REJECTED</option>
+                <option value="DELETE" translate="productManagementApp.CommntStatus.DELETE">DELETE</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label translate="productManagementApp.comment.product" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" ng-model="vm.comment.product" ng-options="product as product.id for product in vm.products track by product.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.comment.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.comment.user" ng-options="user as user.id for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="productManagementApp.comment.shop" for="field_shop">Shop</label>
+            <select class="form-control" id="field_shop" name="shop" ng-model="vm.comment.shop" ng-options="shop as shop.name for shop in vm.shops track by shop.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+{
+    "productManagementApp": {
+        "CategoryType" : {
+            "null": "",
+            "PRODUCT": "PRODUCT",
+            "SHOP": "SHOP"
+        }
+    }
+}

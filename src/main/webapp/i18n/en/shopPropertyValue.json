@@ -1,0 +1,27 @@
+{
+    "productManagementApp": {
+        "shopPropertyValue" : {
+            "home": {
+                "title": "Shop Property Values",
+                "createLabel": "Create a new Shop Property Value",
+                "createOrEditLabel": "Create or edit a Shop Property Value",
+                "search": "Search for Shop Property Value"
+            },
+            "created": "A new Shop Property Value is created with identifier {{ param }}",
+            "updated": "A Shop Property Value is updated with identifier {{ param }}",
+            "deleted": "A Shop Property Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shop Property Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Shop Property Value"
+            },
+            "value": "Value",
+            "accepted": "Accepted",
+            "fromDateTime": "From Date Time",
+            "toDateTime": "To Date Time",
+            "shop": "Shop",
+            "shopProperty": "Shop Property"
+        }
+    }
+}

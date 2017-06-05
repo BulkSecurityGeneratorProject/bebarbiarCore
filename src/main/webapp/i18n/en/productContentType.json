@@ -1,0 +1,10 @@
+{
+    "productManagementApp": {
+        "ProductContentType" : {
+            "null": "",
+            "IMAGE": "تصویر",
+            "VIDEO": "ویدیو",
+            "AUDIO": "صدا"
+        }
+    }
+}

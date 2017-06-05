@@ -1,0 +1,109 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductTypeCategoryLabel" data-translate="productManagementApp.productTypeCategory.home.createOrEditLabel">Create or edit a Product Type Category</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productTypeCategory.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productTypeCategory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.productTypeCategory.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.productTypeCategory.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.icon" for="field_icon">Icon</label>
+            <input type="text" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.productTypeCategory.icon"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.color" for="field_color">Color</label>
+            <input type="text" class="form-control" name="color" id="field_color"
+                    ng-model="vm.productTypeCategory.color"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.path" for="field_path">Path</label>
+            <input type="text" class="form-control" name="path" id="field_path"
+                    ng-model="vm.productTypeCategory.path"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.orderIndex" for="field_orderIndex">Order Index</label>
+            <input type="number" class="form-control" name="orderIndex" id="field_orderIndex"
+                    ng-model="vm.productTypeCategory.orderIndex"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setIconImage($file, vm.productTypeCategory)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.iconImage" for="field_iconImage">Icon Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.productTypeCategory.iconImageContentType + ';base64,' + vm.productTypeCategory.iconImage}}" style="max-height: 100px;" ng-if="vm.productTypeCategory.iconImage" alt="productTypeCategory image"/>
+                <div ng-if="vm.productTypeCategory.iconImage" class="help-block clearfix">
+                    <span class="pull-left">{{vm.productTypeCategory.iconImageContentType}}, {{vm.byteSize(vm.productTypeCategory.iconImage)}}</span>
+                    <button type="button" ng-click="vm.productTypeCategory.iconImage=null;vm.productTypeCategory.iconImageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setIconImage($file, vm.productTypeCategory)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="iconImage" id="field_iconImage"
+                    ng-model="vm.productTypeCategory.iconImage"
+                     />
+            <input type="hidden" class="form-control" name="iconImageContentType" id="field_iconImageContentType"
+                    ng-model="vm.productTypeCategory.iconImageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.categoryType" for="field_categoryType">Category Type</label>
+            <select class="form-control" name="categoryType" ng-model="vm.productTypeCategory.categoryType" id="field_categoryType">
+                <option value="PRODUCT" data-translate="productManagementApp.CategoryType.PRODUCT">PRODUCT</option>
+                <option value="SHOP" data-translate="productManagementApp.CategoryType.SHOP">SHOP</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="productManagementApp.productTypeCategory.pin" for="field_pin">Pin</label>
+            <input type="text" class="form-control" name="pin" id="field_pin"
+                    ng-model="vm.productTypeCategory.pin"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="productManagementApp.productTypeCategory.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="vm.productTypeCategory.status" ng-options="productTypeStatus as productTypeStatus.id for productTypeStatus in vm.producttypestatuses track by productTypeStatus.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="productManagementApp.productTypeCategory.parent" for="field_parent">Parent</label>
+            <select class="form-control" id="field_parent" name="parent" ng-model="vm.productTypeCategory.parent" ng-options="productTypeCategory as productTypeCategory.id for productTypeCategory in vm.producttypecategories track by productTypeCategory.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

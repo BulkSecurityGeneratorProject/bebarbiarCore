@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="productManagementApp.productTrust.detail.title">Product Trust</span> {{vm.productTrust.value}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productTrust.value">Value</span></dt>
+        <dd>
+            <span>{{vm.productTrust.value}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productTrust.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.productTrust.product.id})">{{vm.productTrust.product.title}}</a>
+        </dd>
+        <dt><span translate="productManagementApp.productTrust.user">User</span></dt>
+        <dd>
+            {{(vm.productTrust.user.name+ '  '+vm.productTrust.user.lastName) }}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

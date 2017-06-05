@@ -1,0 +1,12 @@
+{
+    "productManagementApp": {
+        "PropertyType" : {
+            "null": "",
+            "CHECKBOX": "CHECKBOX",
+            "COLOR": "COLOR",
+            "RANGE": "RANGE",
+            "COMBO_DYNAMIC": "COMBO_DYNAMIC",
+            "OSTAN": "OSTAN"
+        }
+    }
+}

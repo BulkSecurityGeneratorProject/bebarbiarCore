@@ -1,0 +1,102 @@
+<div>
+    <h2 data-translate="productManagementApp.productTypeCategory.home.title">Product Type Categories</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="product-type-category.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="productManagementApp.productTypeCategory.home.createLabel">
+                        Create new Product Type Category
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'productManagementApp.productTypeCategory.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.title">Title</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.description">Description</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.icon">Icon</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.color">Color</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.path">Path</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.orderIndex">Order Index</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.iconImage">Icon Image</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.categoryType">Category Type</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.pin">Pin</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.status">Status</span></th>
+                    <th><span data-translate="productManagementApp.productTypeCategory.parent">Parent</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="productTypeCategory in vm.productTypeCategories track by productTypeCategory.id">
+                    <td><a ui-sref="product-type-category-detail({id:productTypeCategory.id})">{{productTypeCategory.id}}</a></td>
+                    <td>{{productTypeCategory.title}}</td>
+                    <td>{{productTypeCategory.description}}</td>
+                    <td>{{productTypeCategory.icon}}</td>
+                    <td>{{productTypeCategory.color}}</td>
+                    <td>{{productTypeCategory.path}}</td>
+                    <td>{{productTypeCategory.orderIndex}}</td>
+                    <td>
+                        <a ng-if="productTypeCategory.iconImage" ng-click="vm.openFile(productTypeCategory.iconImageContentType, productTypeCategory.iconImage)">
+                            <img data-ng-src="{{'data:' + productTypeCategory.iconImageContentType + ';base64,' + productTypeCategory.iconImage}}" style="max-height: 30px;" alt="productTypeCategory image"/>
+                        </a>
+                        <span ng-if="productTypeCategory.iconImage">{{productTypeCategory.iconImageContentType}}, {{vm.byteSize(productTypeCategory.iconImage)}}</span>
+                    </td>
+                    <td data-translate="{{'productManagementApp.CategoryType.' + productTypeCategory.categoryType}}">{{productTypeCategory.categoryType}}</td>
+                    <td>{{productTypeCategory.pin}}</td>
+                    <td>
+                        <a ui-sref="product-type-status-detail({id:productTypeCategory.status.id})">{{productTypeCategory.status.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="product-type-category-detail({id:productTypeCategory.parent.id})">{{productTypeCategory.parent.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="product-type-category-detail({id:productTypeCategory.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-type-category.edit({id:productTypeCategory.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-type-category.delete({id:productTypeCategory.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

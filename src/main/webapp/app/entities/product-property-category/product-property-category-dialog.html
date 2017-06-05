@@ -1,0 +1,55 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProductPropertyCategoryLabel" translate="productManagementApp.productPropertyCategory.home.createOrEditLabel">Create or edit a Product Property Category</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.productPropertyCategory.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.productPropertyCategory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="productManagementApp.productPropertyCategory.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.productPropertyCategory.title"
+                     />
+        </div>
+
+        <div class="form-group" ngf-drop ngf-change="vm.setIcon($file, vm.productPropertyCategory)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="productManagementApp.productPropertyCategory.icon" for="field_icon">Icon</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.productPropertyCategory.iconContentType + ';base64,' + vm.productPropertyCategory.icon}}" style="max-height: 100px;" ng-if="vm.productPropertyCategory.icon"/>
+                <div ng-if="vm.productPropertyCategory.icon" class="help-block clearfix">
+                    <span class="pull-left">{{vm.productPropertyCategory.iconContentType}}, {{vm.byteSize(vm.productPropertyCategory.icon)}}</span>
+                    <button ng-click="vm.productPropertyCategory.icon=null;vm.productPropertyCategory.iconContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setIcon($file, vm.productPropertyCategory)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="icon" id="field_icon"
+                    ng-model="vm.productPropertyCategory.icon"
+                     />
+            <input type="hidden" class="form-control" name="iconContentType" id="field_iconContentType"
+                    ng-model="vm.productPropertyCategory.iconContentType" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

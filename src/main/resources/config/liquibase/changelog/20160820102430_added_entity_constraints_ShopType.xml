@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ShopType.
+    -->
+    <changeSet id="20160820102430-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="shop_types_id"
+                                 baseTableName="shop_type_shop_property"
+                                 constraintName="fk_shop_type_shop_property_shopproperty_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shop_type"/>
+        <addForeignKeyConstraint baseColumnNames="shop_properties_id"
+                                 baseTableName="shop_type_shop_property"
+                                 constraintName="fk_shop_type_shop_property_shoptype_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shop_property"/>
+
+        <addForeignKeyConstraint baseColumnNames="shop_type_category_id"
+                                 baseTableName="shop_type"
+                                 constraintName="fk_shoptype_shoptypecategory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shop_type_category"/>
+
+    </changeSet>
+</databaseChangeLog>

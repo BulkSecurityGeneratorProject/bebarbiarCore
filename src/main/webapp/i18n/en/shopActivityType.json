@@ -1,0 +1,10 @@
+{
+    "productManagementApp": {
+        "ShopActivityType" : {
+            "null": "",
+            "PHYSICAL": "PHYSICAL",
+            "VIRTUAL": "VIRTUAL",
+            "BOTH": "BOTH"
+        }
+    }
+}

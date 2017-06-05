@@ -1,0 +1,23 @@
+{
+    "productManagementApp": {
+        "startupModal" : {
+            "home": {
+                "title": "Startup Modals",
+                "createLabel": "Create a new Startup Modal",
+                "createOrEditLabel": "Create or edit a Startup Modal",
+                "search": "Search for Startup Modal"
+            },
+            "created": "A new Startup Modal is created with identifier {{ param }}",
+            "updated": "A Startup Modal is updated with identifier {{ param }}",
+            "deleted": "A Startup Modal is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Startup Modal {{ id }}?"
+            },
+            "detail": {
+                "title": "Startup Modal"
+            },
+            "url": "Url",
+            "index": "Index"
+        }
+    }
+}

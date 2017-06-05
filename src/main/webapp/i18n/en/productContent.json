@@ -1,0 +1,28 @@
+{
+    "productManagementApp": {
+        "productContent" : {
+            "home": {
+                "title": "Product Contents",
+                "createLabel": "Create a new Product Content",
+                "createOrEditLabel": "Create or edit a Product Content",
+                "search": "Search for Product Content"
+            },
+            "created": "A new Product Content is created with identifier {{ param }}",
+            "updated": "A Product Content is updated with identifier {{ param }}",
+            "deleted": "A Product Content is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Content"
+            },
+            "contentType": "Content Type",
+            "posterUrl": "Poster Url",
+            "poster": "Poster",
+            "content": "Content",
+            "description": "Description",
+            "contentUrl": "Content Url",
+            "product": "Product"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "productManagementApp": {
+        "shopProductCategory" : {
+            "home": {
+                "title": "ShopProductCategories",
+                "createLabel": "Créer un nouveau Shop Product Category",
+                "createOrEditLabel": "Créer ou éditer un Shop Product Category",
+                "search": "Recherche pour Shop Product Category"
+            },
+            "created": "Un nouveau Shop Product Category a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shop Product Category avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shop Product Category avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shop Product Category {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shop Product Category"
+            },
+            "isDefault": "Is Default",
+            "shop": "Shop",
+            "productTypeCategory": "Product Type Category"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://pellefant-02.db.elephantsql.com:5432/idtxhoae
+
+    username: idtxhoae
+    password: A1YOhdbTxKVizUujdLtKQATwDS-e9ffL
+    driverClassName: org.postgresql.Driver
+    hikari:
+            data-source-properties:
+                 cachePrepStmts: true
+                 prepStmtCacheSize: 250
+                 prepStmtCacheSqlLimit: 2048
+                 maximumPoolSize: 19
+  jpa:
+    database-platform: ir.anijuu.products.domain.util.FixedPostgreSQL82Dialect
+
+    database: POSTGRESQL
+    hibernate.ddl-auto: none
+    show_sql: true
+    properties:
+         hibernate.cache.use_second_level_cache: false
+jhipster:
+    cache: # Hibernate 2nd level cache, used by CacheConfiguration
+        timeToLiveSeconds: 3600
+        ehcache:
+            maxBytesLocalHeap: 16M
+    security:
+        authentication:
+            jwt:
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 24 hours
+                tokenValidityInSeconds: 86400
+                tokenValidityInSecondsForRememberMe: 518400
+liquibase:
+    contexts: dev

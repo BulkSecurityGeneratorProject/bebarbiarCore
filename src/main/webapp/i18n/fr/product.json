@@ -1,0 +1,35 @@
+{
+    "productManagementApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Créer un nouveau Product",
+                "createOrEditLabel": "Créer ou éditer un Product",
+                "search": "Recherche pour Product"
+            },
+            "created": "Un nouveau Product a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "title": "Title",
+            "discount": "Discount",
+            "counts": "Counts",
+            "icon": "Icon",
+            "averageTrust": "Average Trust",
+            "description": "Description",
+            "hashId": "Hash Id",
+            "tags": "Tags",
+            "price": "Price",
+            "shop": "Shop",
+            "propertyValue": "Property Value",
+            "content": "Content",
+            "status": "Status",
+            "productType": "Product Type"
+        }
+    }
+}

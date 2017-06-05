@@ -1,0 +1,26 @@
+{
+    "productManagementApp": {
+        "shopContent" : {
+            "home": {
+                "title": "ShopContents",
+                "createLabel": "Créer un nouveau Shop Content",
+                "createOrEditLabel": "Créer ou éditer un Shop Content",
+                "search": "Recherche pour Shop Content"
+            },
+            "created": "Un nouveau Shop Content a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shop Content avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shop Content avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shop Content {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shop Content"
+            },
+            "contentUrl": "Content Url",
+            "posterUrl": "Poster Url",
+            "contentType": "Content Type",
+            "posterContentType": "Poster Content Type",
+            "shop": "Shop"
+        }
+    }
+}

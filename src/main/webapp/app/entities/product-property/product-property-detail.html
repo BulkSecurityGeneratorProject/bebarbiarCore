@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="productManagementApp.productProperty.detail.title">Product Property</span> {{vm.productProperty.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="productManagementApp.productProperty.title">Title</span></dt>
+        <dd>
+            <span>{{vm.productProperty.title}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productProperty.identifier">Identifier</span></dt>
+        <dd>
+            <span>{{vm.productProperty.identifier}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productProperty.propertyType"> Property Type</span></dt>
+        <dd>
+            <span translate="{{'productManagementApp.PropertyType.' + vm.productProperty.propertyType}}">{{vm.productProperty.propertyType}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productProperty.icon">Icon</span></dt>
+        <dd>
+            <span>{{vm.productProperty.icon}}</span>
+        </dd>
+        <dt><span translate="productManagementApp.productProperty.category">Category</span></dt>
+        <dd>
+            <a ui-sref="product-property-category-detail({id:vm.productProperty.category.id})">{{vm.productProperty.category.title}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

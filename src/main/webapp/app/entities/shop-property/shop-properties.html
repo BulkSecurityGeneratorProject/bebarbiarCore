@@ -1,0 +1,87 @@
+<div>
+    <h2 data-translate="productManagementApp.shopProperty.home.title">Shop Properties</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="shop-property.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="productManagementApp.shopProperty.home.createLabel">
+                        Create new Shop Property
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'productManagementApp.shopProperty.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="propertyType"><span data-translate="productManagementApp.shopProperty.propertyType">Property Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="productManagementApp.shopProperty.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identifier"><span data-translate="productManagementApp.shopProperty.identifier">Identifier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="icon"><span data-translate="productManagementApp.shopProperty.icon">Icon</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shopPropertyCategoryId"><span data-translate="productManagementApp.shopProperty.shopPropertyCategory">Shop Property Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shopProperty in vm.shopProperties track by shopProperty.id">
+                    <td><a ui-sref="shop-property-detail({id:shopProperty.id})">{{shopProperty.id}}</a></td>
+                    <td data-translate="{{'productManagementApp.PropertyType.' + shopProperty.propertyType}}">{{shopProperty.propertyType}}</td>
+                    <td>{{shopProperty.title}}</td>
+                    <td>{{shopProperty.identifier}}</td>
+                    <td>{{shopProperty.icon}}</td>
+                    <td>
+                        <a ui-sref="shop-property-category-detail({id:shopProperty.shopPropertyCategoryId})">{{shopProperty.shopPropertyCategoryId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="shop-property-detail({id:shopProperty.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="shop-property.edit({id:shopProperty.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="shop-property.delete({id:shopProperty.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

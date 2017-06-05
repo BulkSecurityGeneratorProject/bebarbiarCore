@@ -1,0 +1,97 @@
+<div>
+    <h2 translate="productManagementApp.productContent.home.title">Product Contents</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="product-content.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="productManagementApp.productContent.home.createLabel">
+                        Create new Product Content
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'productManagementApp.productContent.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="productManagementApp.productContent.contentType">Content Type</span></th>
+                    <th><span translate="productManagementApp.productContent.posterUrl">Poster Url</span></th>
+                    <th><span translate="productManagementApp.productContent.poster">Poster</span></th>
+                    <th><span translate="productManagementApp.productContent.content">Content</span></th>
+                    <th><span translate="productManagementApp.productContent.description">Description</span></th>
+                    <th><span translate="productManagementApp.productContent.contentUrl">Content Url</span></th>
+                    <th><span translate="productManagementApp.productContent.product">Product</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="productContent in vm.productContents track by productContent.id">
+                    <td><a ui-sref="product-content-detail({id:productContent.id})">{{productContent.id}}</a></td>
+                    <td translate="{{'productManagementApp.ProductContentType.' + productContent.contentType}}">{{productContent.contentType}}</td>
+                    <td>{{productContent.posterUrl}}</td>
+                    <td>
+                        <a ng-if="productContent.poster" ng-click="vm.openFile(productContent.posterContentType, productContent.poster)">
+                            <img data-ng-src="{{'data:' + productContent.posterContentType + ';base64,' + productContent.poster}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="productContent.poster">{{productContent.posterContentType}}, {{vm.byteSize(productContent.poster)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="productContent.content" ng-click="vm.openFile(productContent.contentContentType, productContent.content)">
+                            <img data-ng-src="{{'data:' + productContent.contentContentType + ';base64,' + productContent.content}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="productContent.content">{{productContent.contentContentType}}, {{vm.byteSize(productContent.content)}}</span>
+                    </td>
+                    <td>{{productContent.description}}</td>
+                    <td>{{productContent.contentUrl}}</td>
+                    <td>
+                        <a ui-sref="product-detail({id:productContent.product.id})">{{productContent.product.title}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="product-content-detail({id:productContent.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-content.edit({id:productContent.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-content.delete({id:productContent.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

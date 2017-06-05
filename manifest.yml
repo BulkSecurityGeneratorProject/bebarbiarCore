@@ -1,0 +1,9 @@
+---
+applications:
+  - name: bebarbiar
+    buildpack: java_buildpack
+    path: target/product-management-0.0.1-SNAPSHOT.war
+    services:
+      - bbdb
+
+

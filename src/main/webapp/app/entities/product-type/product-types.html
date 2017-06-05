@@ -1,0 +1,102 @@
+<div>
+    <h2 translate="productManagementApp.productType.home.title">Product Types</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="product-type.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="productManagementApp.productType.home.createLabel">
+                        Create new Product Type
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'productManagementApp.productType.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="productManagementApp.productType.title">Title</span></th>
+                    <th><span translate="productManagementApp.productType.description">Description</span></th>
+                    <th><span translate="productManagementApp.productType.trustType">Trust Type</span></th>
+                    <th><span translate="productManagementApp.productType.color">Color</span></th>
+                    <th><span translate="productManagementApp.productType.icon">Icon</span></th>
+                    <th><span translate="productManagementApp.productType.banner">Banner</span></th>
+                    <th><span translate="productManagementApp.productType.bannerUrl">Banner Url</span></th>
+                    <th><span translate="productManagementApp.productType.productTypeActivityType">Product Type Activity Type</span></th>
+                    <th><span translate="productManagementApp.productType.status">Status</span></th>
+                    <th><span translate="productManagementApp.productType.property">Property</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="productType in vm.productTypes track by productType.id">
+                    <td><a ui-sref="product-type-detail({id:productType.id})">{{productType.id}}</a></td>
+                    <td>{{productType.title}}</td>
+                    <td>{{productType.description}}</td>
+                    <td translate="{{'productManagementApp.TrustType.' + productType.trustType}}">{{productType.trustType}}</td>
+                    <td>{{productType.color}}</td>
+                    <td>{{productType.icon}}</td>
+                    <td>
+                        <a ng-if="productType.banner" ng-click="vm.openFile(productType.bannerContentType, productType.banner)">
+                            <img data-ng-src="{{'data:' + productType.bannerContentType + ';base64,' + productType.banner}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="productType.banner">{{productType.bannerContentType}}, {{vm.byteSize(productType.banner)}}</span>
+                    </td>
+                    <td>{{productType.bannerUrl}}</td>
+                    <td translate="{{'productManagementApp.ProductTypeActivityType.' + productType.productTypeActivityType}}">{{productType.productTypeActivityType}}</td>
+                    <td>
+                        <a ui-sref="product-type-status-detail({id:productType.status.id})">{{productType.status.id}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="property in productType.properties">
+                            <a class="form-control-static" ui-sref="product-property-detail({id: {{property.id}}})">{{property.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="product-type-detail({id:productType.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-type.edit({id:productType.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="product-type.delete({id:productType.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

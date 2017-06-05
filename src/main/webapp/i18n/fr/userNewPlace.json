@@ -1,0 +1,27 @@
+{
+    "productManagementApp": {
+        "userNewPlace" : {
+            "home": {
+                "title": "UserNewPlaces",
+                "createLabel": "Créer un nouveau User New Place",
+                "createOrEditLabel": "Créer ou éditer un User New Place",
+                "search": "Recherche pour User New Place"
+            },
+            "created": "Un nouveau User New Place a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User New Place avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User New Place avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User New Place {{ id }} ?"
+            },
+            "detail": {
+                "title": "User New Place"
+            },
+            "longitude": "Longitude",
+            "latitude": "Latitude",
+            "description": "Description",
+            "status": "Status",
+            "createDate": "Create Date",
+            "user": "User"
+        }
+    }
+}
