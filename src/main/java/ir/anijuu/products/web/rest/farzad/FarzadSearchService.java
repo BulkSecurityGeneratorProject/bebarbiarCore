@@ -3,7 +3,6 @@ package ir.anijuu.products.web.rest.farzad;
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.searchbox.client.JestClient;
 import ir.anijuu.products.domain.*;
 import ir.anijuu.products.domain.enumeration.ColorEnum;
 import ir.anijuu.products.repository.*;
@@ -11,6 +10,7 @@ import ir.anijuu.products.utils.ConstantPool;
 import ir.anijuu.products.web.rest.dto.ForgetPasswordDTO;
 import ir.anijuu.products.web.rest.dto.ProductDTO;
 import ir.anijuu.products.web.rest.dto.SearchDTO;
+import ir.anijuu.products.web.rest.dto.SearchResultDTO;
 import ir.anijuu.products.web.rest.dto.farzad.Query;
 import ir.anijuu.products.web.rest.dto.farzad.ResultDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -53,9 +53,6 @@ public class FarzadSearchService {
     @PersistenceContext
     private EntityManager em;
 
-    @Inject
-    @Qualifier("jClient")
-    private JestClient jestClient;
 
 
     @RequestMapping(value = "/1/productList", method = RequestMethod.POST)
@@ -84,6 +81,9 @@ public class FarzadSearchService {
         products.forEach(product -> {
             productDTOs.add(new ProductDTO(product));
         });
+        SearchResultDTO searchResultDTO = new SearchResultDTO();
+        searchResultDTO.getFirstList().addAll(productDTOs.subList(0, products.size() / 2));
+        searchResultDTO.getSecondList().addAll(productDTOs.subList(products.size() / 2, products.size()));
 
         return ResponseEntity.ok(new ObjectMapper().writeValueAsString(productDTOs));
     }

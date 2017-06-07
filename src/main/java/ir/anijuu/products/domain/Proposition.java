@@ -2,7 +2,6 @@ package ir.anijuu.products.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +15,6 @@ import ir.anijuu.products.domain.enumeration.PropositionType;
 @Entity
 @Table(name = "proposition")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "proposition")
 public class Proposition implements Serializable {
 
     private static final long serialVersionUID = 1L;

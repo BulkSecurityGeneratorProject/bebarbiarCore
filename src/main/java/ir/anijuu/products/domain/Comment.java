@@ -3,7 +3,6 @@ package ir.anijuu.products.domain;
 import ir.anijuu.products.domain.enumeration.CommentStatus;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +15,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "comment")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "comment")
 public class Comment implements Serializable {
 
     private static final long serialVersionUID = 1L;

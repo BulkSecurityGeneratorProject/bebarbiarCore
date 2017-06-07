@@ -2,7 +2,6 @@ package ir.anijuu.products.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -16,7 +15,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "comment_like")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "commentlike")
 public class CommentLike implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,5 @@
 package ir.anijuu.products.web.rest.dto.farzad;
 
-import org.elasticsearch.common.geo.GeoPoint;
 
 /**
  * Created by m_bahrevar on 11/15/2016.
@@ -57,11 +56,6 @@ public class SearchProductDTO {
         public String name;
         public String address;
         public String logo;
-        public GeoPoint location;
-
-        public void setLocation(GeoPoint location) {
-            this.location = location;
-        }
 
         public String getName() {
             return name;

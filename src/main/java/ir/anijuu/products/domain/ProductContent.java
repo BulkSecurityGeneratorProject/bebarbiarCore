@@ -3,7 +3,6 @@ package ir.anijuu.products.domain;
 import ir.anijuu.products.domain.enumeration.ContentType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,7 +14,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "product_content")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "productcontent")
 public class ProductContent implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -3,7 +3,6 @@ package ir.anijuu.products.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,7 +18,6 @@ import ir.anijuu.products.domain.enumeration.PropertyType;
 @Entity
 @Table(name = "product_property")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "productproperty")
 public class ProductProperty implements Serializable {
 
     private static final long serialVersionUID = 1L;

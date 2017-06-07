@@ -37,9 +37,7 @@ public class JHipsterProperties {
 
     private final Ribbon ribbon = new Ribbon();
 
-    private final Elastic elastic=new Elastic();
 
-    public Elastic getElastic(){return elastic;}
 
     public Async getAsync() {
         return async;

@@ -2,7 +2,6 @@ package ir.anijuu.products.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "color")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "color")
 public class Color implements Serializable {
 
     private static final long serialVersionUID = 1L;

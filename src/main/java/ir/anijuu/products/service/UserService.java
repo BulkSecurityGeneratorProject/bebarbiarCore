@@ -5,7 +5,6 @@ import ir.anijuu.products.domain.User;
 import ir.anijuu.products.domain.enumeration.UserType;
 import ir.anijuu.products.repository.AuthorityRepository;
 import ir.anijuu.products.repository.UserRepository;
-import ir.anijuu.products.repository.search.UserSearchRepository;
 import ir.anijuu.products.security.SecurityUtils;
 import ir.anijuu.products.service.util.RandomUtil;
 import ir.anijuu.products.utils.CalendarUtil;
@@ -39,9 +38,6 @@ public class UserService {
     private UserRepository userRepository;
 
     @Inject
-    private UserSearchRepository userSearchRepository;
-
-    @Inject
     private AuthorityRepository authorityRepository;
 
     public Optional<User> activateRegistration(String key) {
@@ -52,7 +48,6 @@ public class UserService {
                 user.setActivated(true);
                 user.setActivationKey(null);
                 userRepository.save(user);
-                userSearchRepository.save(user);
                 log.debug("Activated user: {}", user);
                 return user;
             });
@@ -105,7 +100,6 @@ public class UserService {
         authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
-        userSearchRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
 
         return newUser;
@@ -133,7 +127,6 @@ public class UserService {
         user.setResetDate(CalendarUtil.getNowDateTimeOfIran());
         user.setActivated(true);
         userRepository.save(user);
-        userSearchRepository.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
     }
@@ -143,7 +136,6 @@ public class UserService {
             u.setEmail(email);
             u.setLangKey(langKey);
             userRepository.save(u);
-            userSearchRepository.save(u);
             log.debug("Changed Information for User: {}", u);
         });
     }
@@ -151,7 +143,6 @@ public class UserService {
     public void deleteUserInformation(String login) {
         userRepository.findOneByLogin(login).ifPresent(u -> {
             userRepository.delete(u);
-            userSearchRepository.delete(u);
             log.debug("Deleted User: {}", u);
         });
     }
@@ -207,7 +198,6 @@ public class UserService {
         for (User user : users) {
             log.debug("Deleting not activated user {}", user.getLogin());
             userRepository.delete(user);
-            userSearchRepository.delete(user);
         }
     }
 }

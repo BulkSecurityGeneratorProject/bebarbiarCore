@@ -2,7 +2,6 @@ package ir.anijuu.products.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +15,7 @@ import ir.anijuu.products.domain.enumeration.ParameterType;
 @Entity
 @Table(name = "base_parameter")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "baseparameter")
+
 public class BaseParameter implements Serializable {
 
     private static final long serialVersionUID = 1L;
