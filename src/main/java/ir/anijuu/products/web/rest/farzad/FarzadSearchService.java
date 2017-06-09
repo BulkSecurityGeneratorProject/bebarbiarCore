@@ -3,38 +3,22 @@ package ir.anijuu.products.web.rest.farzad;
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ir.anijuu.products.domain.*;
-import ir.anijuu.products.domain.enumeration.ColorEnum;
+import ir.anijuu.products.domain.Product;
 import ir.anijuu.products.repository.*;
-import ir.anijuu.products.utils.ConstantPool;
-import ir.anijuu.products.web.rest.dto.ForgetPasswordDTO;
 import ir.anijuu.products.web.rest.dto.ProductDTO;
 import ir.anijuu.products.web.rest.dto.SearchDTO;
 import ir.anijuu.products.web.rest.dto.SearchResultDTO;
-import ir.anijuu.products.web.rest.dto.farzad.Query;
-import ir.anijuu.products.web.rest.dto.farzad.ResultDTO;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/api")
@@ -66,8 +50,10 @@ public class FarzadSearchService {
         products.forEach(product -> {
             productDTOs.add(new ProductDTO(product));
         });
-
-        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(productDTOs));
+        SearchResultDTO searchResultDTO = new SearchResultDTO();
+        searchResultDTO.getFirstList().addAll(productDTOs.subList(0, products.size() / 2));
+        searchResultDTO.getSecondList().addAll(productDTOs.subList(products.size() / 2, products.size()));
+        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(searchResultDTO));
     }
 
     @RequestMapping(value = "/1/search", method = RequestMethod.POST)
@@ -85,7 +71,7 @@ public class FarzadSearchService {
         searchResultDTO.getFirstList().addAll(productDTOs.subList(0, products.size() / 2));
         searchResultDTO.getSecondList().addAll(productDTOs.subList(products.size() / 2, products.size()));
 
-        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(productDTOs));
+        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(searchResultDTO));
     }
 
 

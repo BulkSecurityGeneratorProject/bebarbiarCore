@@ -14,10 +14,10 @@
 ---
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/idtxhoae
+    url: jdbc:postgresql://stampy.db.elephantsql.com:5432/tcfvdbmc
 
-    username: idtxhoae
-    password: A1YOhdbTxKVizUujdLtKQATwDS-e9ffL
+    username: tcfvdbmc
+    password: gUtzhJ3HHE6cSLnTKRfJwiF2QyK8oRiD
     driverClassName: org.postgresql.Driver
     hikari:
            data-source-properties:

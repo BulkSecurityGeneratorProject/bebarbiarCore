@@ -3,18 +3,13 @@ package ir.anijuu.products.web.rest.farzad;
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ir.anijuu.products.domain.*;
-import ir.anijuu.products.domain.enumeration.ColorEnum;
-import ir.anijuu.products.domain.enumeration.ContactType;
-import ir.anijuu.products.domain.enumeration.ContentType;
+import ir.anijuu.products.domain.Product;
+import ir.anijuu.products.domain.User;
+import ir.anijuu.products.domain.UserRate;
 import ir.anijuu.products.repository.*;
 import ir.anijuu.products.security.SecurityUtils;
 import ir.anijuu.products.utils.CalendarUtil;
-import ir.anijuu.products.utils.ConstantPool;
 import ir.anijuu.products.web.rest.dto.farzad.DetailDTO;
-import ir.anijuu.products.web.rest.dto.farzad.ShopDetailDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -23,11 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -99,15 +92,14 @@ public class FarzaDetailService {
         detailDTO.product = new DetailDTO.Product();
 
         detailDTO.product.id = product.getId().toString();
-        List<ProductContent> contenets = productRepository.getProductContents(product.getId());
         List<String> images = new ArrayList<>();
+        images.add(product.getIcon());
         detailDTO.product.image = images;
         detailDTO.product.description = product.getDescription();
         detailDTO.product.price = String.valueOf(product.getPrice());
         detailDTO.product.title = product.getTitle();
         detailDTO.product.duration = product.getDuration();
         detailDTO.product.address = product.getAddress();
-        detailDTO.product.catId = product.getProductType().getId();
 
         //todo calculate
         detailDTO.product.pastTime = product.getLastModifiedDate() == null ? product.getCreatedDate().toString() : product.getLastModifiedDate().toString();
