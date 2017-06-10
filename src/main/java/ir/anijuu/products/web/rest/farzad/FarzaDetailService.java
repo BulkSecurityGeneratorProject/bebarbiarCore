@@ -44,6 +44,7 @@ public class FarzaDetailService {
 
         try {
             Product product = productRepository.findById(Long.valueOf(id));
+            product.setView(product.getView() + 1);
             return ResponseEntity.ok(new ObjectMapper().writeValueAsString(getProductDetail(product)));
         } catch (
             AuthenticationException exception
@@ -100,7 +101,7 @@ public class FarzaDetailService {
         detailDTO.product.title = product.getTitle();
         detailDTO.product.duration = product.getDuration();
         detailDTO.product.address = product.getAddress();
-
+        detailDTO.product.view = product.getView();
         //todo calculate
         detailDTO.product.pastTime = product.getLastModifiedDate() == null ? product.getCreatedDate().toString() : product.getLastModifiedDate().toString();
         return detailDTO;

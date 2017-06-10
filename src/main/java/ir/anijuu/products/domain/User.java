@@ -51,8 +51,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "name", length = 50)
     private String name;
     @Size(max = 50)
-    @Column(name = "mobile", length = 50)
-    private String mobile;
+    @Column(name = "tel", length = 50)
+    private String tel;
 
     @Size(max = 250)
     @Column(name = "pic", length = 250)
@@ -218,12 +218,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.name = name;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getTel() {
+        return tel;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getPic() {

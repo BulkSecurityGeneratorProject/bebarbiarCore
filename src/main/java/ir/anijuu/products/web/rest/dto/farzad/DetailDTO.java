@@ -18,6 +18,7 @@ public class DetailDTO implements Serializable{
         public List<String> image;
         public String id;
         public Long catId;
+        public Integer view;
         public String duration;
         public String pastTime;
 

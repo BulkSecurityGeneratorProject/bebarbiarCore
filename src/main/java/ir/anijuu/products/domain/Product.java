@@ -58,6 +58,9 @@ public class Product extends AbstractAuditingEntity  implements Serializable {
     @Column(name = "price")
     private Integer price;
 
+    @Column(name = "view")
+    private Integer view=0;
+
 
     @OneToMany(mappedBy = "product")
     @JsonIgnore
@@ -74,12 +77,16 @@ public class Product extends AbstractAuditingEntity  implements Serializable {
 
     @ManyToOne
     private ProductType productType;
+    @ManyToOne
+    private User user;
 
     @Column(name = "otherId")
     private String otherId;
 
     @Column(name = "duration")
     public String duration;
+
+    @Column(name = "address")
     private String address;
 
 
@@ -254,5 +261,21 @@ public class Product extends AbstractAuditingEntity  implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Integer getView() {
+        return view;
+    }
+
+    public void setView(Integer view) {
+        this.view = view;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

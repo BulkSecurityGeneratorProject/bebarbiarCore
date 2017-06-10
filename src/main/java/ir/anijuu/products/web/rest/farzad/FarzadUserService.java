@@ -17,11 +17,9 @@ import ir.anijuu.products.service.UserService;
 import ir.anijuu.products.utils.CalendarUtil;
 import ir.anijuu.products.utils.ConstantPool;
 import ir.anijuu.products.utils.QRCodeUtil;
-import ir.anijuu.products.web.rest.dto.ContactUsDTO;
-import ir.anijuu.products.web.rest.dto.ForgetPasswordDTO;
-import ir.anijuu.products.web.rest.dto.LoginDTO;
-import ir.anijuu.products.web.rest.dto.NewPlaceDTO;
+import ir.anijuu.products.web.rest.dto.*;
 import ir.anijuu.products.web.rest.dto.farzad.*;
+import ir.anijuu.products.web.rest.dto.farzad.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -67,6 +65,8 @@ public class FarzadUserService {
     @Inject
     private UserService userService;
     @Inject
+    private ProductRepository  productRepository;
+    @Inject
     private ProductTypeCategoryRepository productTypeCategoryRepository;
     @PersistenceContext
     private EntityManager em;
@@ -86,7 +86,7 @@ public class FarzadUserService {
             if (authentication.isAuthenticated()) {
                 User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
                 userDTO.setName(user.getName());
-                userDTO.setMobile(user.getMobile());
+                userDTO.setMobile(user.getTel());
                 userDTO.setPassword(loginDTO.getPassword());
                 userDTO.setPicture(user.getPic());
             }
@@ -124,11 +124,27 @@ public class FarzadUserService {
         user.setAuthorities(authoritie);
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         user.setName(userDTO.getName());
-        user.setMobile(userDTO.getMobile());
+        user.setTel(userDTO.getMobile());
         userRepository.save(user);
         user.setHashId(Integer.toHexString((System.identityHashCode(user.getId()))).toUpperCase());
         userRepository.save(user);
         return ResponseEntity.ok("200");
+    }
+    @RequestMapping(value = "/1/myProducts", method = RequestMethod.POST)
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<?> myProducts(@Valid @RequestBody String data, HttpServletResponse response) throws JsonProcessingException {
+
+        List<Product> products = productRepository.findAll();
+        List<ProductDTO> productDTOs = new ArrayList<>();
+        products.forEach(product -> {
+            productDTOs.add(new ProductDTO(product));
+        });
+        SearchResultDTO searchResultDTO = new SearchResultDTO();
+        searchResultDTO.getFirstList().addAll(productDTOs.subList(0, products.size() / 2));
+        searchResultDTO.getSecondList().addAll(productDTOs.subList(products.size() / 2, products.size()));
+        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(searchResultDTO));
     }
 
     @RequestMapping(value = "/1/forget", method = RequestMethod.POST)
@@ -153,7 +169,7 @@ public class FarzadUserService {
             user1.setResetDate(CalendarUtil.getNowDateTimeOfIran());
             userRepository.save(user1);
             try {
-                String tel = user1.getMobile();
+                String tel = user1.getTel();
                 KavenegarApi api = new KavenegarApi("5635717141617A52534F636F49546D38454E647870773D3D");
 //                api.send("10006006606600", tel, "شماره بازیابی :  " + s);
 
@@ -182,7 +198,7 @@ public class FarzadUserService {
         Optional<User> u = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
         if (u.isPresent()) {
             u.get().setName(user.getName());
-            u.get().setMobile(user.getTel());
+            u.get().setTel(user.getTel());
 
             userRepository.save(u.get());
             return ResponseEntity.ok("200");

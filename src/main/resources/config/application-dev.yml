@@ -14,10 +14,10 @@
 ---
 spring:
   datasource:
-    url: jdbc:postgresql://pellefant-02.db.elephantsql.com:5432/idtxhoae
+    url: jdbc:postgresql://stampy.db.elephantsql.com:5432/tcfvdbmc
 
-    username: idtxhoae
-    password: A1YOhdbTxKVizUujdLtKQATwDS-e9ffL
+    username: tcfvdbmc
+    password: gUtzhJ3HHE6cSLnTKRfJwiF2QyK8oRiD
     driverClassName: org.postgresql.Driver
     hikari:
             data-source-properties:
@@ -29,7 +29,7 @@ spring:
     database-platform: ir.anijuu.products.domain.util.FixedPostgreSQL82Dialect
 
     database: POSTGRESQL
-    hibernate.ddl-auto: none
+    hibernate.ddl-auto: create-drop
     show_sql: true
     properties:
          hibernate.cache.use_second_level_cache: false

@@ -43,7 +43,7 @@ public class FarzadSearchService {
     @Timed
     @CrossOrigin(origins = "*")
 
-    public ResponseEntity<?> confirmReset(HttpServletResponse response) throws JsonProcessingException {
+    public ResponseEntity<?> productList(HttpServletResponse response) throws JsonProcessingException {
 
         List<Product> products = productRepository.findAll();
         List<ProductDTO> productDTOs = new ArrayList<>();
