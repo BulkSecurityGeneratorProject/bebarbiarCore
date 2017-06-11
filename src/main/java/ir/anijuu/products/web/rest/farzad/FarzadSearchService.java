@@ -8,7 +8,9 @@ import ir.anijuu.products.repository.*;
 import ir.anijuu.products.web.rest.dto.ProductDTO;
 import ir.anijuu.products.web.rest.dto.SearchDTO;
 import ir.anijuu.products.web.rest.dto.SearchResultDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController

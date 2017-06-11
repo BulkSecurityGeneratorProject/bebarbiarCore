@@ -65,7 +65,7 @@ public class FarzadUserService {
     @Inject
     private UserService userService;
     @Inject
-    private ProductRepository  productRepository;
+    private ProductRepository productRepository;
     @Inject
     private ProductTypeCategoryRepository productTypeCategoryRepository;
     @PersistenceContext
@@ -81,10 +81,10 @@ public class FarzadUserService {
             new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword());
 
         try {
-            UserDTO userDTO=new UserDTO();
+            UserDTO userDTO = new UserDTO();
             Authentication authentication = this.authenticationManager.authenticate(authenticationToken);
             if (authentication.isAuthenticated()) {
-                User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+                User user = userRepository.findOneByLogin(loginDTO.getUsername()).get();
                 userDTO.setName(user.getName());
                 userDTO.setMobile(user.getTel());
                 userDTO.setPassword(loginDTO.getPassword());
@@ -106,6 +106,41 @@ public class FarzadUserService {
     }
 
 
+    @RequestMapping(value = "/1/rent", method = RequestMethod.POST)
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<?> rent(@Valid @RequestBody String id, HttpServletResponse response) {
+
+        try {
+            Product product = productRepository.findById(Long.valueOf(id));
+//            product.setStatus();//change status
+        } catch (
+            AuthenticationException exception
+            )
+
+        {
+            return new ResponseEntity<>(Collections.singletonMap("AuthenticationException", exception.getLocalizedMessage()), HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok("200");
+
+    }
+ @RequestMapping(value = "/1/available", method = RequestMethod.POST)
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<?> available(@Valid @RequestBody String id, HttpServletResponse response) {
+
+        try {
+            Product product = productRepository.findById(Long.valueOf(id));
+//            product.setStatus();//change status
+        } catch (
+            AuthenticationException exception
+            )
+
+        {
+            return new ResponseEntity<>(Collections.singletonMap("AuthenticationException", exception.getLocalizedMessage()), HttpStatus.BAD_REQUEST);
+        }
+       return ResponseEntity.ok("200");
+    }
 
     @RequestMapping(value = "/1/signup", method = RequestMethod.POST)
     @Timed
@@ -130,6 +165,7 @@ public class FarzadUserService {
         userRepository.save(user);
         return ResponseEntity.ok("200");
     }
+
     @RequestMapping(value = "/1/myProducts", method = RequestMethod.POST)
     @Timed
     @CrossOrigin(origins = "*")

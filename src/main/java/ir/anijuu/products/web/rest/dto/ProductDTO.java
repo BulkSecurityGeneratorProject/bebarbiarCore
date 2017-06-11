@@ -18,6 +18,7 @@ public class ProductDTO {
     private Integer price;
     private String image;
     private String duration;
+    private Integer view;
 
     public ProductDTO(Product product) {
         this.id =product.getId();
@@ -25,6 +26,7 @@ public class ProductDTO {
         price=product.getPrice();
         image=product.getIcon();
         duration=product.getDuration();
+        view=product.getView();
     }
 
 
@@ -66,5 +68,13 @@ public class ProductDTO {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Integer getView() {
+        return view;
+    }
+
+    public void setView(Integer view) {
+        this.view = view;
     }
 }

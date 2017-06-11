@@ -30,7 +30,7 @@ spring:
     database-platform: ir.anijuu.products.domain.util.FixedPostgreSQL82Dialect
 
     database: POSTGRESQL
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
     show_sql: false
     properties:
          hibernate.cache.use_second_level_cache: false
