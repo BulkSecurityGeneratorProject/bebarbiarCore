@@ -267,7 +267,7 @@ public class FarzadUserService {
 
     public ResponseEntity<?> changePassword(@Valid @RequestBody String password, HttpServletResponse response) {
         User user1 = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
-        user1.setPassword(passwordEncoder.encode(password));
+        user1.setPassword(passwordEncoder.encode(password.substring(1,password.length()-1)));
         userRepository.save(user1);
         return ResponseEntity.ok("200");
     }

@@ -95,12 +95,12 @@ public class FarzaDetailService {
         detailDTO.product.id = product.getId().toString();
         List<String> images = new ArrayList<>();
         images.add(product.getIcon());
-        detailDTO.product.image = images;
-        detailDTO.product.description = product.getDescription();
+        detailDTO.product.images = images;
+        detailDTO.product.desc = product.getDescription();
         detailDTO.product.price = String.valueOf(product.getPrice());
         detailDTO.product.title = product.getTitle();
-        detailDTO.product.duration = product.getDuration();
-        detailDTO.product.address = product.getAddress();
+        detailDTO.product.period = product.getDuration();
+        detailDTO.product.adr = product.getAddress();
         detailDTO.product.view = product.getView();
         //todo calculate
         detailDTO.product.pastTime = product.getLastModifiedDate() == null ? product.getCreatedDate().toString() : product.getLastModifiedDate().toString();

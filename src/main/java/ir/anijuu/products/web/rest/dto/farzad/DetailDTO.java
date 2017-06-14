@@ -13,13 +13,13 @@ public class DetailDTO implements Serializable{
     public static class Product implements Serializable{
         public String title;
         public String price;
-        public String description;
-        public String address;
-        public List<String> image;
+        public String desc;
+        public String adr;
+        public List<String> images;
         public String id;
         public Long catId;
         public Integer view;
-        public String duration;
+        public String period;
         public String pastTime;
 
 
